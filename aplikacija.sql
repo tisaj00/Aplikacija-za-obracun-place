@@ -7,12 +7,12 @@ create table radnik (
 	id 					int not null primary key auto_increment,
 	oib					char(11) null,
 	ime					varchar(50)	not null,
-	prezime				varchar(50) not null,
-	spol				varchar(1) not null,
-	datum_rodenja		datetime not null,
-	mobitel				char(13) null,
-	osnovica_po_satu 	decimal(4,1) not null,
-	opcina_prebivalista	varchar(100) not null
+	prezime				varchar(50) not null,	
+	spol				varchar(1) not null,	
+	datum_rodenja		datetime not null,		
+	mobitel				char(13) null,	
+	osnovica_po_satu 	decimal(4,1) not null,		
+	opcina_prebivalista	varchar(100) not null		
 );	
 
 create table isplata (
@@ -45,7 +45,8 @@ insert into radnik (id,oib,ime,prezime,spol,datum_rodenja,mobitel,osnovica_po_sa
 (null,67682145721,'Marija','Herić','Ž','1977-2-14',+385975869712,26.3,'Valpovo'),
 (null,42357912562,'Josip','Ivić','M','1967-9-18',+385985698517,27.2,'Osijek'),
 (null,87524901728,'Marina','Pirić','Ž','1982-12-12',+385956874239,30,'Petrijevci'),
-(null,78235410292,'Josipa','Anričić','Ž','1981-11-12',+385925460912,28.5,'Donji Miholjac');
+(null,78235410292,'Josipa','Anričić','Ž','1981-11-12',+385925460912,28.5,'Donji Miholjac'),
+(null,78450256932,'Ante','Anić','M','1980-25-6',+3859256844132,31.2,'Đakovo');
 
 insert into isplata (id,racun_radnika,radnik,datum,naziv_isplate) values 
 (null,'HR2596874236915896348',1,'2017-4-15','Isplata za mjesec ožujak'),
