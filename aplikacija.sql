@@ -17,22 +17,22 @@ create table radnik (
 
 create table isplata (
 	id 					int not null primary key auto_increment,
-	racun_radnika		char(21) not null,
-	radnik 				int not null,
-	datum				datetime not null,
-	naziv_isplate		varchar(100)not null
+	racun_radnika				char(21) not null,
+	radnik 					int not null,
+	datum					datetime not null,
+	naziv_isplate				varchar(100)not null
 
 );
 create table vrsta_primanja (
 	id 					int not null primary key auto_increment,
-	vrijednost			varchar(100) not null,
-	koeficijent			decimal(5,1) not null
+	vrijednost				varchar(100) not null,
+	koeficijent				decimal(5,1) not null
 );
 
 create table obracun (
-	isplata 			int not null,
-	vrsta_primanja		int not null,
-	kolicina_sati		int(10) not null
+	isplata 				int not null,
+	vrsta_primanja				int not null,
+	kolicina_sati				int(10) not null
 );
 
 alter table isplata add foreign key (radnik) references radnik(id);
