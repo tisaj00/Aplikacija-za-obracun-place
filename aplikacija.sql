@@ -7,12 +7,12 @@ create table radnik (
 	id 					int not null primary key auto_increment,
 	oib					char(11) null,
 	ime					varchar(50)	not null,
-	prezime				varchar(50) not null,	
-	spol				varchar(1) not null,	
-	datum_rodenja		datetime not null,		
-	mobitel				char(13) null,	
-	osnovica_po_satu 	decimal(4,1) not null,		
-	opcina_prebivalista	varchar(100) not null		
+	prezime					varchar(50) not null,	
+	spol					varchar(1) not null,	
+	datum_rodenja				datetime not null,		
+	mobitel					char(13) null,	
+	osnovica_po_satu 			decimal(4,1) not null,		
+	opcina_prebivalista			varchar(100) not null		
 );	
 
 create table isplata (
