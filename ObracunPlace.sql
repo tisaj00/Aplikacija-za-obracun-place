@@ -1,16 +1,16 @@
-drop database if exists aplikacija;
-create database aplikacija character set utf8 collate utf8_general_ci;
-# mysql -uedunova -pedunova --default_character_set=utf8 < D:\Tečaj\mojaapp\aplikacija.sql
-use aplikacija;
+drop database if exists ObracunPlace;
+create database ObracunPlace character set utf8 collate utf8_general_ci;
+# mysql -uedunova -pedunova --default_character_set=utf8 < D:\Tečaj\Aplikacija-za-obracun-place\ObracunPlace.sql
+use ObracunPlace;
 
 create table radnik (
 	id 					int not null primary key auto_increment,
-	oib					char(11) null,
+	oib					int(11) null,
 	ime					varchar(50)	not null,
 	prezime					varchar(50) not null,	
 	spol					varchar(1) not null,	
 	datum_rodenja				datetime not null,		
-	mobitel					char(13) null,	
+	mobitel					int(13) null,	
 	osnovica_po_satu 			decimal(4,1) not null,		
 	opcina_prebivalista			varchar(100) not null		
 );	
