@@ -36,7 +36,6 @@ create table obracun (
 );
 
 alter table isplata add foreign key (radnik) references radnik(id);
-
 alter table obracun add foreign key (vrsta_primanja) references vrsta_primanja(id);
 alter table obracun add foreign key (isplata) references isplata(id);
 
