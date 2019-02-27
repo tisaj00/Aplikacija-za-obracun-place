@@ -64,5 +64,3 @@ insert into obracun (isplata,vrsta_primanja,kolicina_sati) values
 (2,2,110),
 (3,3,125),
 (4,4,189);
-
-
