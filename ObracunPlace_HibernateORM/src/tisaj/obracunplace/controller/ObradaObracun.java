@@ -9,7 +9,6 @@ import tisaj.obracunplace.model.Obracun;
 import tisaj.obracunplace.pomocno.ObracunPlaceException;
 import tisaj.obracunplace.pomocno.HibernateUtil;
 import tisaj.obracunplace.pomocno.ObradaSucelje;
-import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -35,14 +34,10 @@ public class ObradaObracun extends Obrada<Obracun> implements ObradaSucelje<Obra
      }
     
      public void obrisi(Obracun ob) throws ObracunPlaceException{
-       /*  
-         if(ob.get().size()>0){
-             throw new ObracunPlaceException("Obračun se ne može obrisati jer ima radnika,isplatu i vrstu primanja");
-         }
 
-      */   
          dao.delete(ob);
      }
+     
      
      public void kontrola(Obracun ob) throws ObracunPlaceException{
      

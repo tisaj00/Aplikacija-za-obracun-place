@@ -17,7 +17,7 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table
-public abstract class Radnik extends Entitet implements Serializable{
+public class Radnik extends Entitet implements Serializable{
     
     private String ime;
     private String prezime;
@@ -32,9 +32,7 @@ public abstract class Radnik extends Entitet implements Serializable{
     private String opcinaPrebivaliste;
     
     private String iban;
-    
-    
-    
+
     @OneToMany (mappedBy = "radnik")
     private List<Obracun> obracuni = new ArrayList<>();
 

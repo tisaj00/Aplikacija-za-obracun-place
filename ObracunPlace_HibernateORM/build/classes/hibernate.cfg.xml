@@ -41,12 +41,12 @@
     
     
     <!-- moraju se slijedno navesti klase koje su mapirane -->
-    <mapping class="edunova.model.VrstaPrimanja" /> 
-     <mapping class="edunova.model.Radnik" /> 
+    <mapping class="tisaj.obracunplace.model.VrstaPrimanja" /> 
+     <mapping class="tisaj.obracunplace.model.Radnik" /> 
    
-     <mapping class="edunova.model.Isplata" /> 
+     <mapping class="tisaj.obracunplace.model.Isplata" /> 
      
-     <mapping class="edunova.model.Obracun" /> 
+     <mapping class="tisaj.obracunplace.model.Obracun" /> 
    
 </session-factory>
 </hibernate-configuration>

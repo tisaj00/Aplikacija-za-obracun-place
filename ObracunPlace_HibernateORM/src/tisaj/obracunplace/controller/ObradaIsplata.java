@@ -33,7 +33,7 @@ public class ObradaIsplata extends Obrada<Isplata> implements ObradaSucelje<Ispl
      }
     public void obrisi(Isplata i) throws ObracunPlaceException{
          
-         if(i.getObracuni().size()>0){
+         if(!i.getObracuni().isEmpty()){
              throw new ObracunPlaceException("Isplata se ne može obrisati jer ima napravljen obračun");
          }
          dao.delete(i);

@@ -5,20 +5,43 @@
  */
 package tisaj.obracunplace.controller;
 
+import java.util.List;
 import tisaj.obracunplace.model.Radnik;
 import tisaj.obracunplace.pomocno.ObracunPlaceException;
 import tisaj.obracunplace.pomocno.Pomocno;
 import org.apache.commons.validator.routines.IBANValidator;
+import tisaj.obracunplace.model.VrstaPrimanja;
+import tisaj.obracunplace.pomocno.HibernateUtil;
+import tisaj.obracunplace.pomocno.ObradaSucelje;
 
 /**
  *
  * @author Josip
  * @param <T>
  */
-public class ObradaRadnik<T extends Radnik> extends Obrada<T>{
+public class ObradaRadnik extends Obrada<Radnik> implements ObradaSucelje<Radnik>{
     
     public ObradaRadnik(){
         super();
+    }
+    public List<Radnik> getLista(){
+         return HibernateUtil.getSession().createQuery("from radnik").list();
+    }
+    
+    public Radnik save(Radnik r) throws ObracunPlaceException{
+         
+        
+         kontrola(r);
+         
+         return dao.save(r);
+     }
+    public void obrisi(Radnik r) throws  ObracunPlaceException{
+    
+        if(!r.getObracuni().isEmpty()){
+            throw new ObracunPlaceException("Radnik se ne može obrisati jer ima obračun");  
+            }
+        
+        dao.delete(r);
     }
      
     public void kontrola(Radnik r) throws ObracunPlaceException{
