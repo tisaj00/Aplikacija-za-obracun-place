@@ -5,11 +5,11 @@
  */
 package tisaj.obracunplace.view;
 
+
 import java.sql.PreparedStatement;
 import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
-import tisaj.obracunplace.pomocno.HibernateUtil;
 
 /**
  *
@@ -164,11 +164,11 @@ public class RegisterForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jtfPonovljenaLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel3))
-                .addGap(23, 23, 23)
+                .addGap(27, 27, 27)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel6)
                     .addComponent(jtfDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(20, 20, 20)
+                .addGap(22, 22, 22)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -207,61 +207,61 @@ public class RegisterForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSubmitMouseClicked
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        String ime=jtfIme.getText().toString();
-        String prezime = jtfPrezime.getText().toString();
-        String username = jtfUsername.getText().toString();
-        String password = String.valueOf(jtfLozinka.getPassword());
-        String repassword = String.valueOf(jtfPonovljenaLozinka.getPassword());
-        String date= null;
-        
-        if(username.equals("")){
-            JOptionPane.showMessageDialog(null, "Add a Username");
-        }
-        
-        else if(password.equals("")){
-            JOptionPane.showMessageDialog(null, "Add a Password");
-        }
-        else if(!password.equals(repassword)){
-            JOptionPane.showMessageDialog(null, "Retype the password");
-        }
-        
-             
-        else{
-          
-        if(jtfDatum.getDate() != null){
-            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-            date = dateformat.format(jtfDatum.getDate());
-        }    
-          
-        PreparedStatement ps;
-        String query = "INSERT INTO `LogReg`(`ime`, `prezime`, `username`, `password`, `repassword`, `datumrodenja`) VALUES (?,?,?,?,?,?)";
-        try {
-            ps = HibernateUtil.getSession();
-            
-            ps.setString(1, ime);
-            ps.setString(2, prezime);
-            ps.setString(3, username);
-            ps.setString(4, BCrypt.hashpw(password, BCrypt.gensalt()));
-           
-            ps.setString(5, BCrypt.hashpw(repassword, BCrypt.gensalt()));
-            
-            if(date != null){
-            ps.setString(6, date);
-            }
-            else{
-            ps.setNull(6, 0);
-            }
-            
-            
-            if(ps.executeUpdate()>0){
-                JOptionPane.showMessageDialog(null, "New user add");
-            }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
-        }
+//        String ime=jtfIme.getText().toString();
+//        String prezime = jtfPrezime.getText().toString();
+//        String username = jtfUsername.getText().toString();
+//        String password = String.valueOf(jtfLozinka.getPassword());
+//        String repassword = String.valueOf(jtfPonovljenaLozinka.getPassword());
+//        String date= null;
+//        
+//        if(username.equals("")){
+//            JOptionPane.showMessageDialog(null, "Add a Username");
+//        }
+//        
+//        else if(password.equals("")){
+//            JOptionPane.showMessageDialog(null, "Add a Password");
+//        }
+//        else if(!password.equals(repassword)){
+//            JOptionPane.showMessageDialog(null, "Retype the password");
+//        }
+//        
+//             
+//        else{
+//          
+//        if(jtfDatum.getDate() != null){
+//            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
+//            date = dateformat.format(jtfDatum.getDate());
+//        }    
+//          
+//        PreparedStatement ps;
+//        String query = "INSERT INTO `logreg`(`ime`, `prezime`, `username`, `password`, `repassword`, `datumrodenja`) VALUES (?,?,?,?,?,?)";
+//        try {
+//            ps = Baza.getConnected().prepareStatement(query);
+//            
+//            ps.setString(1, ime);
+//            ps.setString(2, prezime);
+//            ps.setString(3, username);
+//            ps.setString(4, BCrypt.hashpw(password, BCrypt.gensalt()));
+//           
+//            ps.setString(5, BCrypt.hashpw(repassword, BCrypt.gensalt()));
+//            
+//            if(date != null){
+//            ps.setString(6, date);
+//            }
+//            else{
+//            ps.setNull(6, 0);
+//            }
+//            
+//            
+//            if(ps.executeUpdate()>0){
+//                JOptionPane.showMessageDialog(null, "New user add");
+//            }
+//            
+//        } catch (Exception e) {
+//            e.printStackTrace();
+//        }
+//        
+//        }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed

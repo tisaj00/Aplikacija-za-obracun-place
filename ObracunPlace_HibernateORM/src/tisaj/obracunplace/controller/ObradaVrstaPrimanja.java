@@ -34,9 +34,9 @@ public class ObradaVrstaPrimanja extends Obrada<VrstaPrimanja> implements Obrada
          return dao.save(vp);
      }
     
-     public void obrisi(VrstaPrimanja vp) throws ObracunPlaceException{
+     public void delete(VrstaPrimanja vp) throws ObracunPlaceException{
          if(!vp.getObracuni().isEmpty()){
-             throw  new ObracunPlaceException("Ne može se obrisati vrsta primanja jer je u obračunu");
+             throw  new ObracunPlaceException("Vrta primanja se ne može obrisati jer je u obračunu");
          }
          dao.delete(vp);
      }

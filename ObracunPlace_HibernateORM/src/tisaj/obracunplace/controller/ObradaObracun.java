@@ -33,7 +33,7 @@ public class ObradaObracun extends Obrada<Obracun> implements ObradaSucelje<Obra
          return dao.save(ob);
      }
     
-     public void obrisi(Obracun ob) throws ObracunPlaceException{
+     public void delete(Obracun ob) throws ObracunPlaceException{
 
          dao.delete(ob);
      }

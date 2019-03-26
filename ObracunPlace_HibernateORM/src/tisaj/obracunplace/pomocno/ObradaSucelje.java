@@ -16,7 +16,7 @@ public interface ObradaSucelje<T> {
     public List<T> getLista();
     public void kontrola(T t) throws ObracunPlaceException;
     public T save(T t) throws ObracunPlaceException;
-    public void obrisi(T t) throws ObracunPlaceException;
+    public void delete(T t) throws ObracunPlaceException;
     
             
     

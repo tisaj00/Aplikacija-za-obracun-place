@@ -4,10 +4,9 @@
  * and open the template in the editor.
  */
 package tisaj.obracunplace.view;
+
 import java.sql.*;
 import javax.swing.*;
-import tisaj.obracunplace.pomocno.HibernateUtil;
-
 
 
 /**
@@ -77,16 +76,16 @@ public class LoginForm extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(103, 103, 103)
-                                .addComponent(btnSubmit))
-                            .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jLabel2)
                                     .addComponent(jLabel1))
                                 .addGap(42, 42, 42)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(txtPassword)
-                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                                    .addComponent(txtUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(103, 103, 103)
+                                .addComponent(btnSubmit))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(56, 56, 56)
                         .addComponent(txtRegistracija)))
@@ -120,10 +119,10 @@ public class LoginForm extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(30, 30, 30)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -132,7 +131,7 @@ public class LoginForm extends javax.swing.JFrame {
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(24, Short.MAX_VALUE))
+                .addContainerGap(23, Short.MAX_VALUE))
         );
 
         pack();
@@ -140,36 +139,68 @@ public class LoginForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     
-  
+    public static void main(String args[]) {
+        /* Set the Nimbus look and feel */
+        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
+        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
+         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
+         */
+        try {
+            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
+                if ("Nimbus".equals(info.getName())) {
+                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
+                    break;
+                }
+            }
+        } catch (ClassNotFoundException ex) {
+            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (InstantiationException ex) {
+            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (IllegalAccessException ex) {
+            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
+            java.util.logging.Logger.getLogger(LoginForm.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+        }
+        //</editor-fold>
+        //</editor-fold>
+
+        /* Create and display the form */
+        java.awt.EventQueue.invokeLater(new Runnable() {
+            public void run() {
+                new LoginForm().setVisible(true);
+            }
+        });
+    }
     
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        String password = new String(txtPassword.getPassword());
-        try{
-        conn=HibernateUtil.getSession();
-        String sql="Select * from LogReg where username=? and password=?";
-        
-            pst=conn.prepareStatement(sql);
-            pst.setString(1, txtUsername.getText());
-            pst.setString(2, new String(txtPassword.getPassword()));
-            rs=pst.executeQuery();
-            
-            while(rs.next()){
-                if(BCrypt.checkpw(password, rs.getString("password"))){
-                    JOptionPane.showMessageDialog(null ,"Welcome user");
-                    Welcome w = new Welcome();
-                    w.setVisible(true);
-                
-            }
-            else {
-                JOptionPane.showMessageDialog(null, "Invalid username or password","Access Dinied",JOptionPane.ERROR_MESSAGE);
-                
-            }
-            }
-        } catch (Exception e) {
-            JOptionPane.showMessageDialog(null, e);
-        } 
-        
-        this.dispose();
+//        conn=Baza.getConnected();
+//        String password = new String(txtPassword.getPassword());
+//        
+//        
+//        String sql="Select * from logreg where username=? and password=?";
+//        try{
+//            pst=conn.prepareStatement(sql);
+//            pst.setString(1, txtUsername.getText());
+//            pst.setString(2, new String(txtPassword.getPassword()));
+//            rs=pst.executeQuery();
+//            
+//            while(rs.next()){
+//                if(BCrypt.checkpw(sql, rs.getString("password"))){
+//                    JOptionPane.showMessageDialog(null ,"Welcome user");
+//                    Welcome w = new Welcome();
+//                    w.setVisible(true);
+//                
+//            }
+//            else {
+//                JOptionPane.showMessageDialog(null, "Invalid username or password","Access Dinied",JOptionPane.ERROR_MESSAGE);
+//                
+//            }
+//            }
+//        } catch (Exception e) {
+//            JOptionPane.showMessageDialog(null, e);
+//        } 
+//        
+//        this.dispose();
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void txtRegistracijaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_txtRegistracijaMouseClicked
@@ -181,16 +212,6 @@ public class LoginForm extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_txtRegistracijaMouseClicked
 
-    public static boolean checkPassword(String password_plaintext, String stored_hash) {
-    boolean password_verified = false;
-
-    if(null == stored_hash || !stored_hash.startsWith("$2a$"))
-        throw new java.lang.IllegalArgumentException("Invalid hash provided for comparison");
-
-    password_verified = BCrypt.checkpw(password_plaintext, stored_hash);
-
-    return(password_verified);
-    }
     
     
 

@@ -41,13 +41,14 @@
     
     
     <!-- moraju se slijedno navesti klase koje su mapirane -->
+    <mapping class="tisaj.obracunplace.model.LogReg" />
     <mapping class="tisaj.obracunplace.model.VrstaPrimanja" /> 
      <mapping class="tisaj.obracunplace.model.Radnik" /> 
    
      <mapping class="tisaj.obracunplace.model.Isplata" /> 
      
      <mapping class="tisaj.obracunplace.model.Obracun" /> 
-     <mapping class="tisaj.obracunplace.model.LogReg" />
+     
    
 </session-factory>
 </hibernate-configuration>

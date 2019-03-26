@@ -10,7 +10,6 @@ import tisaj.obracunplace.model.Radnik;
 import tisaj.obracunplace.pomocno.ObracunPlaceException;
 import tisaj.obracunplace.pomocno.Pomocno;
 import org.apache.commons.validator.routines.IBANValidator;
-import tisaj.obracunplace.model.VrstaPrimanja;
 import tisaj.obracunplace.pomocno.HibernateUtil;
 import tisaj.obracunplace.pomocno.ObradaSucelje;
 
@@ -35,7 +34,7 @@ public class ObradaRadnik extends Obrada<Radnik> implements ObradaSucelje<Radnik
          
          return dao.save(r);
      }
-    public void obrisi(Radnik r) throws  ObracunPlaceException{
+    public void delete(Radnik r) throws  ObracunPlaceException{
     
         if(!r.getObracuni().isEmpty()){
             throw new ObracunPlaceException("Radnik se ne može obrisati jer ima obračun");  
@@ -57,11 +56,9 @@ public class ObradaRadnik extends Obrada<Radnik> implements ObradaSucelje<Radnik
         if(r.getPrezime().trim().isEmpty()){
             throw new ObracunPlaceException("Prezime nije uneseno");
         }
-        
         if(!Pomocno.checkOIB(r.getOib())){
             throw new ObracunPlaceException("Oib je neispravan");
         }
-        
         if(r.getMobitel()==null){
             throw new ObracunPlaceException("Mobitel nije definiran");
         }
@@ -74,9 +71,9 @@ public class ObradaRadnik extends Obrada<Radnik> implements ObradaSucelje<Radnik
         if(r.getSpol().trim().isEmpty()){
             throw new ObracunPlaceException("Spol nije unesen");
         }
-        if(r.getDatumRodenja()==null){
-            throw new ObracunPlaceException("Datum rođenja nije definiran");
-        }
+//        if(r.getDatumRodenja()==null){
+//            throw new ObracunPlaceException("Datum rođenja nije definiran");
+//        }
         if(r.getOsnovicaPoSatu()==null){
             throw new ObracunPlaceException("Osnovica po satu nije definirana");
         }
