@@ -7,21 +7,23 @@ package tisaj.obracunplace.model;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
 @Entity
-public class LogReg extends Entitet implements Serializable{
+public class Operater extends Entitet implements Serializable{
     
     private String ime;
     private String prezime;
     private String username;
-    private String password;
-    private String repassword;
     
-    @Temporal(TemporalType.DATE)
-    private Date datumrodenja;
+    @Column(columnDefinition = "char(60)")
+    private String password;
+    
+    
+    
     
     
     public String getIme() {
@@ -56,21 +58,7 @@ public class LogReg extends Entitet implements Serializable{
         this.password = password;
     }
 
-    public String getRepassword() {
-        return repassword;
-    }
-
-    public void setRepassword(String repassword) {
-        this.repassword = repassword;
-    }
-
-    public Date getDatumrodenja() {
-        return datumrodenja;
-    }
-
-    public void setDatumrodenja(Date datumrodenja) {
-        this.datumrodenja = datumrodenja;
-    }
+    
     
     
     

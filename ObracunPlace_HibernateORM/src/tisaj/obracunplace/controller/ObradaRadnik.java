@@ -24,7 +24,7 @@ public class ObradaRadnik extends Obrada<Radnik> implements ObradaSucelje<Radnik
         super();
     }
     public List<Radnik> getLista(){
-         return HibernateUtil.getSession().createQuery("from radnik").list();
+         return HibernateUtil.getSession().createQuery("from Radnik").list();
     }
     
     public Radnik save(Radnik r) throws ObracunPlaceException{
