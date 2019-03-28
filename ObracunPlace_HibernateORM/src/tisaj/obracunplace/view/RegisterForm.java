@@ -7,9 +7,9 @@ package tisaj.obracunplace.view;
 
 
 import java.sql.PreparedStatement;
-import java.text.SimpleDateFormat;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;
+import tisaj.obracunplace.pomocno.BCrypt;
 
 /**
  *
@@ -40,31 +40,27 @@ public class RegisterForm extends javax.swing.JFrame {
         jtfIme = new javax.swing.JTextField();
         jtfPrezime = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
         jLabel5 = new javax.swing.JLabel();
-        jLabel6 = new javax.swing.JLabel();
         jtfLozinka = new javax.swing.JPasswordField();
-        jtfPonovljenaLozinka = new javax.swing.JPasswordField();
         jtfUsername = new javax.swing.JTextField();
         btnSubmit = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
         jLabel8 = new javax.swing.JLabel();
         jLabel9 = new javax.swing.JLabel();
-        jtfDatum = new org.jdesktop.swingx.JXDatePicker();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel1.setText("Ime");
 
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel2.setText("Prezime");
 
-        jLabel4.setText("Lozinka");
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jLabel4.setText("Password");
 
-        jLabel3.setText("Ponovljena lozinka");
-
+        jLabel5.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
         jLabel5.setText("Username");
-
-        jLabel6.setText("Datum rođenja");
 
         btnSubmit.setText("Create");
         btnSubmit.addMouseListener(new java.awt.event.MouseAdapter() {
@@ -109,36 +105,28 @@ public class RegisterForm extends javax.swing.JFrame {
                             .addComponent(jLabel7)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                            .addComponent(jLabel1)
-                                            .addComponent(jLabel2)
-                                            .addComponent(jLabel5)
-                                            .addComponent(jLabel4)
-                                            .addComponent(jLabel3))
-                                        .addGap(58, 58, 58))
-                                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                        .addComponent(jLabel6)
-                                        .addGap(75, 75, 75)))
-                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                    .addComponent(jtfPonovljenaLozinka, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                    .addComponent(jtfLozinka, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                    .addComponent(jtfUsername, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                    .addComponent(jtfPrezime, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                    .addComponent(jtfIme, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
-                                    .addComponent(jtfDatum, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(79, 79, 79)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                            .addComponent(jLabel9)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addComponent(btnSubmit)
-                                .addGap(48, 48, 48)
-                                .addComponent(jButton2))))
+                                    .addComponent(jLabel1)
+                                    .addComponent(jLabel2)
+                                    .addComponent(jLabel5)
+                                    .addComponent(jLabel4))
+                                .addGap(98, 98, 98)
+                                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(jButton2)
+                                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                        .addComponent(jtfLozinka, javax.swing.GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)
+                                        .addComponent(jtfUsername)
+                                        .addComponent(jtfPrezime)
+                                        .addComponent(jtfIme))))))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(106, 106, 106)
-                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(67, Short.MAX_VALUE))
+                        .addComponent(jLabel8, javax.swing.GroupLayout.PREFERRED_SIZE, 162, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(79, 79, 79)
+                        .addComponent(btnSubmit))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(70, 70, 70)
+                        .addComponent(jLabel9)))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -161,23 +149,15 @@ public class RegisterForm extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
                     .addComponent(jtfLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(27, 27, 27)
+                .addGap(46, 46, 46)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jtfPonovljenaLozinka, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3))
-                .addGap(27, 27, 27)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel6)
-                    .addComponent(jtfDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(22, 22, 22)
+                    .addComponent(btnSubmit)
+                    .addComponent(jButton2))
+                .addGap(49, 49, 49)
                 .addComponent(jLabel7)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton2)
-                    .addComponent(btnSubmit))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
                 .addComponent(jLabel9)
-                .addGap(23, 23, 23))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -187,7 +167,7 @@ public class RegisterForm extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(32, 32, 32)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(49, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -208,61 +188,39 @@ public class RegisterForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnSubmitMouseClicked
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-//        String ime=jtfIme.getText().toString();
-//        String prezime = jtfPrezime.getText().toString();
-//        String username = jtfUsername.getText().toString();
-//        String password = String.valueOf(jtfLozinka.getPassword());
-//        String repassword = String.valueOf(jtfPonovljenaLozinka.getPassword());
-//        String date= null;
-//        
-//        if(username.equals("")){
-//            JOptionPane.showMessageDialog(null, "Add a Username");
-//        }
-//        
-//        else if(password.equals("")){
-//            JOptionPane.showMessageDialog(null, "Add a Password");
-//        }
-//        else if(!password.equals(repassword)){
-//            JOptionPane.showMessageDialog(null, "Retype the password");
-//        }
-//        
-//             
-//        else{
-//          
-//        if(jtfDatum.getDate() != null){
-//            SimpleDateFormat dateformat = new SimpleDateFormat("yyyy-MM-dd");
-//            date = dateformat.format(jtfDatum.getDate());
-//        }    
-//          
-//        PreparedStatement ps;
-//        String query = "INSERT INTO `logreg`(`ime`, `prezime`, `username`, `password`, `repassword`, `datumrodenja`) VALUES (?,?,?,?,?,?)";
-//        try {
-//            ps = Baza.getConnected().prepareStatement(query);
-//            
-//            ps.setString(1, ime);
-//            ps.setString(2, prezime);
-//            ps.setString(3, username);
-//            ps.setString(4, BCrypt.hashpw(password, BCrypt.gensalt()));
-//           
-//            ps.setString(5, BCrypt.hashpw(repassword, BCrypt.gensalt()));
-//            
-//            if(date != null){
-//            ps.setString(6, date);
-//            }
-//            else{
-//            ps.setNull(6, 0);
-//            }
-//            
-//            
-//            if(ps.executeUpdate()>0){
-//                JOptionPane.showMessageDialog(null, "New user add");
-//            }
-//            
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
-//        
-//        }
+        String ime=jtfIme.getText().toString();
+        String prezime = jtfPrezime.getText().toString();
+        String username = jtfUsername.getText().toString();
+        String password = String.valueOf(jtfLozinka.getPassword());
+
+        
+        if(username.equals("")){
+            JOptionPane.showMessageDialog(null, "Add a Username");
+        }
+        
+        else if(password.equals("")){
+            JOptionPane.showMessageDialog(null, "Add a Password");
+        }
+
+        PreparedStatement ps;
+        String query = "INSERT INTO `operater`(`ime`, `prezime`, `username`, `password` ) VALUES (?,?,?,?)";
+        try {
+            ps = .getConnected().prepareStatement(query);
+            
+            ps.setString(1, ime);
+            ps.setString(2, prezime);
+            ps.setString(3, username);
+            ps.setString(4, BCrypt.hashpw(password, BCrypt.gensalt()));
+            
+            if(ps.executeUpdate()>0){
+                JOptionPane.showMessageDialog(null, "New user add");
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        
+        
     }//GEN-LAST:event_btnSubmitActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
@@ -290,18 +248,14 @@ public class RegisterForm extends javax.swing.JFrame {
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
-    private org.jdesktop.swingx.JXDatePicker jtfDatum;
     private javax.swing.JTextField jtfIme;
     private javax.swing.JPasswordField jtfLozinka;
-    private javax.swing.JPasswordField jtfPonovljenaLozinka;
     private javax.swing.JTextField jtfPrezime;
     private javax.swing.JTextField jtfUsername;
     // End of variables declaration//GEN-END:variables
