@@ -56,7 +56,6 @@ public class Radnici extends javax.swing.JFrame {
         jLabel5 = new javax.swing.JLabel();
         txtMobitel = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
-        txtDatum = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtOsnovica = new javax.swing.JTextField();
         jLabel8 = new javax.swing.JLabel();
@@ -67,12 +66,12 @@ public class Radnici extends javax.swing.JFrame {
         btnOčisti = new javax.swing.JButton();
         jLabel9 = new javax.swing.JLabel();
         txtIban = new javax.swing.JTextField();
+        jXDatePicker1 = new org.jdesktop.swingx.JXDatePicker();
         jMenuBar1 = new javax.swing.JMenuBar();
         jMenu1 = new javax.swing.JMenu();
-        jMenuItem1 = new javax.swing.JMenuItem();
         jMenuItem2 = new javax.swing.JMenuItem();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Moja Aplikacija");
         setAutoRequestFocus(false);
 
@@ -109,8 +108,6 @@ public class Radnici extends javax.swing.JFrame {
         jLabel6.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel6.setText("Datum rođenja");
 
-        txtDatum.setHorizontalAlignment(javax.swing.JTextField.RIGHT);
-
         jLabel7.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel7.setText("Osnovica po satu");
 
@@ -119,6 +116,8 @@ public class Radnici extends javax.swing.JFrame {
         jLabel8.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel8.setText("Općina prebivališta");
 
+        btnDodaj.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnDodaj.setIcon(new javax.swing.ImageIcon("C:\\Users\\Josip\\Documents\\NetBeansProjects\\NetBeans\\ObracunPlace_HibernateORM\\src\\tisaj\\obracunplace\\view\\image\\Button-Add-icon (1).png")); // NOI18N
         btnDodaj.setText("Dodaj");
         btnDodaj.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -131,6 +130,8 @@ public class Radnici extends javax.swing.JFrame {
             }
         });
 
+        btnPromjeni.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnPromjeni.setIcon(new javax.swing.ImageIcon("C:\\Users\\Josip\\Documents\\NetBeansProjects\\NetBeans\\ObracunPlace_HibernateORM\\src\\tisaj\\obracunplace\\view\\image\\Button-Refresh-icon.png")); // NOI18N
         btnPromjeni.setText("Promjeni");
         btnPromjeni.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -143,6 +144,8 @@ public class Radnici extends javax.swing.JFrame {
             }
         });
 
+        btnObrisi.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnObrisi.setIcon(new javax.swing.ImageIcon("C:\\Users\\Josip\\Documents\\NetBeansProjects\\NetBeans\\ObracunPlace_HibernateORM\\src\\tisaj\\obracunplace\\view\\image\\Button-Delete-icon.png")); // NOI18N
         btnObrisi.setText("Obriši");
         btnObrisi.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseEntered(java.awt.event.MouseEvent evt) {
@@ -155,6 +158,7 @@ public class Radnici extends javax.swing.JFrame {
             }
         });
 
+        btnOčisti.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnOčisti.setText("Očisti");
         btnOčisti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -166,14 +170,6 @@ public class Radnici extends javax.swing.JFrame {
         jLabel9.setText("IBAN");
 
         jMenu1.setText("File");
-
-        jMenuItem1.setText("About");
-        jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jMenuItem1ActionPerformed(evt);
-            }
-        });
-        jMenu1.add(jMenuItem1);
 
         jMenuItem2.setText("Izlaz");
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
@@ -197,57 +193,56 @@ public class Radnici extends javax.swing.JFrame {
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(13, 13, 13)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(jLabel6)
-                        .addGap(68, 68, 68))
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(38, 38, 38)
+                                .addComponent(txtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(txtSpol, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(txtOib, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(txtOib, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel8)
                             .addComponent(txtOpcina, javax.swing.GroupLayout.PREFERRED_SIZE, 278, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addGap(12, 12, 12)
-                                            .addComponent(jLabel1)
-                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                            .addComponent(jLabel2)
-                                            .addGap(63, 63, 63))
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, 80, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(38, 38, 38)
-                                            .addComponent(txtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, 79, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(41, 41, 41)))
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(txtSpol, javax.swing.GroupLayout.PREFERRED_SIZE, 25, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGap(0, 0, Short.MAX_VALUE)
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addGroup(layout.createSequentialGroup()
-                                            .addComponent(jLabel5)
-                                            .addGap(134, 134, 134)
-                                            .addComponent(jLabel7))
-                                        .addComponent(txtDatum, javax.swing.GroupLayout.PREFERRED_SIZE, 107, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                    .addGap(16, 16, 16)))
-                            .addGroup(layout.createSequentialGroup()
-                                .addComponent(txtMobitel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(48, 48, 48)
-                                .addComponent(txtOsnovica, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jLabel9)
                             .addComponent(txtIban, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 36, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(137, 137, 137)
+                                .addComponent(jLabel6))
+                            .addGroup(layout.createSequentialGroup()
                                 .addComponent(btnDodaj)
-                                .addGap(31, 31, 31)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnPromjeni)
-                                .addGap(33, 33, 33)
+                                .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnOčisti, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                        .addGap(0, 15, Short.MAX_VALUE))))
+                                    .addComponent(btnObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(jLabel5)
+                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel7))
+                                .addGroup(layout.createSequentialGroup()
+                                    .addComponent(txtMobitel, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(82, 82, 82)
+                                    .addComponent(txtOsnovica, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addGap(26, 26, 26)))
+                            .addGroup(layout.createSequentialGroup()
+                                .addComponent(jLabel1)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(115, 115, 115)
+                                        .addComponent(jLabel2))
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addGap(237, 237, 237)
+                                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                        .addGap(0, 19, Short.MAX_VALUE))))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -268,10 +263,10 @@ public class Radnici extends javax.swing.JFrame {
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel3)
                             .addComponent(jLabel6))
-                        .addGap(14, 14, 14)
+                        .addGap(13, 13, 13)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtOib, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(txtDatum, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jXDatePicker1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addGap(18, 18, 18)
                         .addComponent(jLabel9)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
@@ -315,6 +310,8 @@ public class Radnici extends javax.swing.JFrame {
         
         SimpleDateFormat dt = new SimpleDateFormat("dd.MM.YYYY.");
         
+        
+        
         try {
             txtOib.setText((r.getOib()));
         } catch (Exception e) {
@@ -325,7 +322,9 @@ public class Radnici extends javax.swing.JFrame {
         txtSpol.setText(r.getSpol());
         
         try {
-            txtDatum.setText(dt.format(r.getDatumRodenja()));
+            dt.format(jXDatePicker1.getDate());
+            
+            jXDatePicker1.setDate(new String(dt.format(r.getDatumRodenja())));
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -416,20 +415,16 @@ public class Radnici extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jMenuItem2ActionPerformed
 
-    private void jMenuItem1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem1ActionPerformed
-        new About().setVisible(true);
-    }//GEN-LAST:event_jMenuItem1ActionPerformed
-
     private void btnDodajMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDodajMouseEntered
-        btnDodaj.setBackground(Color.GREEN);
+        
     }//GEN-LAST:event_btnDodajMouseEntered
 
     private void btnObrisiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnObrisiMouseEntered
-        btnObrisi.setBackground(Color.RED);
+        
     }//GEN-LAST:event_btnObrisiMouseEntered
 
     private void btnPromjeniMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPromjeniMouseEntered
-        btnPromjeni.setBackground(Color.YELLOW);
+        
     }//GEN-LAST:event_btnPromjeniMouseEntered
 
     
@@ -450,11 +445,10 @@ public class Radnici extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel9;
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenuBar jMenuBar1;
-    private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;
     private javax.swing.JScrollPane jScrollPane1;
+    private org.jdesktop.swingx.JXDatePicker jXDatePicker1;
     private javax.swing.JList<Radnik> lstEntitet;
-    private javax.swing.JTextField txtDatum;
     private javax.swing.JTextField txtIban;
     private javax.swing.JTextField txtIme;
     private javax.swing.JTextField txtMobitel;
@@ -481,8 +475,9 @@ public class Radnici extends javax.swing.JFrame {
        txtOib.setText("");
        txtOsnovica.setText("");
        txtOpcina.setText("");
-       txtDatum.setText("");
        txtIban.setText("");
+       txtDatum.setText("");
+       
        
     }
     
@@ -519,6 +514,7 @@ public class Radnici extends javax.swing.JFrame {
         
         r.setOsnovicaPoSatu(txtOsnovica.getText());
         r.setOpcinaPrebivaliste(txtOpcina.getText());
+        r.setIban(txtIban.getText());
  
         return true;
     }

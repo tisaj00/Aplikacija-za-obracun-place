@@ -41,7 +41,7 @@
     
     
     <!-- moraju se slijedno navesti klase koje su mapirane -->
-    <mapping class="tisaj.obracunplace.model.LogReg" />
+    <mapping class="tisaj.obracunplace.model.Operater" />
     <mapping class="tisaj.obracunplace.model.VrstaPrimanja" /> 
      <mapping class="tisaj.obracunplace.model.Radnik" /> 
    

@@ -32,7 +32,7 @@ public class SplashScreen extends javax.swing.JFrame {
             for(int i=1;i<50;i++){
                 jProgressBar1.setValue(i);
                 try {
-                    Thread.sleep(50);
+                    Thread.sleep(30);
                 } catch (Exception e) {
                 }
  
@@ -43,7 +43,7 @@ public class SplashScreen extends javax.swing.JFrame {
                 for(int i=50;i<=100;i++){
                 jProgressBar1.setValue(i);
                 try {
-                     Thread.sleep(50);
+                     Thread.sleep(30);
                 } catch (Exception e) {
                 }
             }
@@ -76,7 +76,7 @@ public class SplashScreen extends javax.swing.JFrame {
         jblPoruka.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jblPoruka.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon("C:\\Users\\Josip\\Desktop\\photo-1496674205429-924b32acd421.jpg")); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tisaj/obracunplace/view/image/photo-1496674205429-924b32acd421.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

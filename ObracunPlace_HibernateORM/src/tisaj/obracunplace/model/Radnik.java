@@ -115,6 +115,11 @@ public class Radnik extends Entitet implements Serializable{
     public void setOpcinaPrebivaliste(String opcinaPrebivaliste) {
         this.opcinaPrebivaliste = opcinaPrebivaliste;
     }
+
+    @Override
+    public String toString() {
+        return "Radnik"  + getId() +"   "+ime + "  "+ prezime + "   "+ spol +"  "+oib ;
+    }
     
     
     

@@ -90,6 +90,10 @@ public class ObradaRadnik extends Obrada<Radnik> implements ObradaSucelje<Radnik
             throw new ObracunPlaceException("Račun radnika nije ispavan");
         }
         
+        
+        
     }
+
+    
     
 }
