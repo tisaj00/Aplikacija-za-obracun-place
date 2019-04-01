@@ -204,21 +204,21 @@ public class RegisterForm extends javax.swing.JFrame {
 
         PreparedStatement ps;
         String query = "INSERT INTO `operater`(`ime`, `prezime`, `username`, `password` ) VALUES (?,?,?,?)";
-//        try {
-//           // ps = .getConnected().prepareStatement(query);
-//            
-//            ps.setString(1, ime);
-//            ps.setString(2, prezime);
-//            ps.setString(3, username);
-//            ps.setString(4, BCrypt.hashpw(password, BCrypt.gensalt()));
-//            
-//            if(ps.executeUpdate()>0){
-//                JOptionPane.showMessageDialog(null, "New user add");
-//            }
-//            
-//        } catch (Exception e) {
-//            e.printStackTrace();
-//        }
+        try {
+           ps = .getConnected().prepareStatement(query);
+            
+            ps.setString(1, ime);
+            ps.setString(2, prezime);
+            ps.setString(3, username);
+            ps.setString(4, BCrypt.hashpw(password, BCrypt.gensalt()));
+            
+            if(ps.executeUpdate()>0){
+                JOptionPane.showMessageDialog(null, "New user add");
+            }
+            
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         
         
     }//GEN-LAST:event_btnSubmitActionPerformed

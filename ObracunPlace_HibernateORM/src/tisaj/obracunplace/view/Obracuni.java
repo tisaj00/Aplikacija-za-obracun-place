@@ -5,6 +5,8 @@
  */
 package tisaj.obracunplace.view;
 
+import java.awt.Toolkit;
+
 /**
  *
  * @author Josip
@@ -16,6 +18,7 @@ public class Obracuni extends javax.swing.JFrame {
      */
     public Obracuni() {
         initComponents();
+        seticon();
     }
 
     /**
@@ -44,7 +47,9 @@ public class Obracuni extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-   
+   private void seticon() {
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("obracun.png")));
+    }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     // End of variables declaration//GEN-END:variables
