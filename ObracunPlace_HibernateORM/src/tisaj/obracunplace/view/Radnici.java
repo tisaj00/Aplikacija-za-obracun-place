@@ -6,6 +6,7 @@
 package tisaj.obracunplace.view;
 
 import java.awt.Toolkit;
+import java.text.DateFormat;
 import tisaj.obracunplace.controller.ObradaRadnik;
 import tisaj.obracunplace.model.Radnik;
 import tisaj.obracunplace.pomocno.ObracunPlaceException;
@@ -17,7 +18,7 @@ import javax.swing.JOptionPane;
 
 /**
  *
- * @author Josip   DODAT IBANNNN
+ * @author Josip   
  */
 public class Radnici extends javax.swing.JFrame {
 
@@ -298,7 +299,7 @@ public class Radnici extends javax.swing.JFrame {
             return;
         }
         
-        SimpleDateFormat dt = new SimpleDateFormat("dd.MM.yyyy.");
+        DateFormat dt = new SimpleDateFormat("dd.MM.yyyy.");
         
         
         
@@ -307,14 +308,16 @@ public class Radnici extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
+        
+        
         txtIme.setText(r.getIme());
         txtPrezime.setText(r.getPrezime());
         txtSpol.setText(r.getSpol());
         
         try {
-            dt.format(txtDatum.getDate());
+            dt.parse(txtDatum.getDate());
             
-            txtDatum.setText(new String(dt.format(r.getDatumRodenja())));
+            txtDatum.setDate(new String(dt.format(r.getDatumRodenja())));
         } catch (Exception e) {
             e.printStackTrace();
         }

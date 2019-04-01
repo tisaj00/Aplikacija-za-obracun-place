@@ -40,7 +40,7 @@
     <Container class="javax.swing.JPanel" name="jPanel2">
       <Properties>
         <Property name="background" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-          <Color blue="cc" green="cc" red="0" type="rgb"/>
+          <Color blue="66" green="ff" red="66" type="rgb"/>
         </Property>
         <Property name="border" type="javax.swing.border.Border" editor="org.netbeans.modules.form.editors2.BorderEditor">
           <Border info="org.netbeans.modules.form.compat2.border.LineBorderInfo">
@@ -154,9 +154,6 @@
           </Layout>
           <SubComponents>
             <Component class="javax.swing.JPasswordField" name="txtPassword">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="t"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="jLabel1">
               <Properties>
@@ -186,9 +183,6 @@
               </Properties>
             </Component>
             <Component class="javax.swing.JTextField" name="txtUsername">
-              <Properties>
-                <Property name="text" type="java.lang.String" value="tisaj"/>
-              </Properties>
             </Component>
             <Component class="javax.swing.JLabel" name="txtRegistracija">
               <Properties>
@@ -196,7 +190,7 @@
                   <Font name="Tahoma" size="14" style="1"/>
                 </Property>
                 <Property name="foreground" type="java.awt.Color" editor="org.netbeans.beaninfo.editors.ColorEditor">
-                  <Color blue="cc" green="cc" red="0" type="rgb"/>
+                  <Color blue="33" green="66" red="ff" type="rgb"/>
                 </Property>
                 <Property name="text" type="java.lang.String" value="Nemate ra&#x10d;un? Kliknite za registraciju"/>
                 <Property name="cursor" type="java.awt.Cursor" editor="org.netbeans.modules.form.editors2.CursorEditor">

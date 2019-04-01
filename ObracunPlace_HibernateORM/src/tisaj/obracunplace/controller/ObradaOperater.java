@@ -38,26 +38,7 @@ public class ObradaOperater extends Obrada<Operater> implements ObradaSucelje<Op
         return null;
     }
      
-     public Operater pohrana(String ime,String prezime,String username,String password){
      
-         
-         Operater o = (Operater) HibernateUtil.getSession().createQuery("insert into radnik (ime,prezime,username,password) "
-                    + " values (?,?,?,?)")
-                 .setString("ime", ime)
-                 .setString("prezime", prezime)
-                 .setString("username", username)
-                 .setString("password", password)
-                 .uniqueResult();
-         if(o==null){
-             return null;
-         }
-         if(BCrypt.checkpw(password, o.getPassword())){
-             return o;
-         }
-         
-     
-         return null;
-     }
      
      
     @Override

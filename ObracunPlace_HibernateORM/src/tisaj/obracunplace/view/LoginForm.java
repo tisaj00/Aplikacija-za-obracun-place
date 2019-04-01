@@ -52,13 +52,11 @@ public class LoginForm extends javax.swing.JFrame {
         setTitle("Obračun Plaće");
         setBackground(new java.awt.Color(255, 255, 255));
 
-        jPanel2.setBackground(new java.awt.Color(0, 204, 204));
+        jPanel2.setBackground(new java.awt.Color(102, 255, 102));
         jPanel2.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
 
         jPanel1.setBackground(new java.awt.Color(255, 255, 255));
         jPanel1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
-
-        txtPassword.setText("t");
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setText("Username");
@@ -74,10 +72,8 @@ public class LoginForm extends javax.swing.JFrame {
         jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setText("Password");
 
-        txtUsername.setText("tisaj");
-
         txtRegistracija.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        txtRegistracija.setForeground(new java.awt.Color(0, 204, 204));
+        txtRegistracija.setForeground(new java.awt.Color(255, 102, 51));
         txtRegistracija.setText("Nemate račun? Kliknite za registraciju");
         txtRegistracija.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         txtRegistracija.addMouseListener(new java.awt.event.MouseAdapter() {
