@@ -5,22 +5,11 @@
         <group>
             <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/view/Radnici.java</file>
             <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/view/Isplate.java</file>
-            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/controller/ObradaOperater.java</file>
-            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/view/Obracuni.java</file>
-            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/Start.java</file>
+            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/controller/ObradaIsplata.java</file>
             <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/view/LoginForm.java</file>
-            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/view/Kontakt.java</file>
-            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/model/Entitet.java</file>
-            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/view/RegisterForm.java</file>
-            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/view/SplashScreen.java</file>
-            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/model/Obracun.java</file>
-            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/model/VrstaPrimanja.java</file>
-            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/view/VrstePrimanja.java</file>
             <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/model/Isplata.java</file>
-            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/model/Radnik.java</file>
+            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/view/RegisterForm.java</file>
             <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/view/Izbornik.java</file>
-            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/controller/ObradaRadnik.java</file>
-            <file>file:/C:/Users/Josip/Documents/NetBeansProjects/NetBeans/ObracunPlace_HibernateORM/src/tisaj/obracunplace/view/About.java</file>
         </group>
     </open-files>
 </project-private>

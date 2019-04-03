@@ -5,8 +5,6 @@
  */
 package tisaj.obracunplace.controller;
 
-import java.sql.PreparedStatement;
-import java.sql.Statement;
 import java.util.List;
 import tisaj.obracunplace.model.Operater;
 import tisaj.obracunplace.pomocno.BCrypt;

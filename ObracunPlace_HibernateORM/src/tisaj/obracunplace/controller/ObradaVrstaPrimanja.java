@@ -23,7 +23,7 @@ public class ObradaVrstaPrimanja extends Obrada<VrstaPrimanja> implements Obrada
     }
     
     public List<VrstaPrimanja> getLista(){
-         return HibernateUtil.getSession().createQuery("from vrstaprimanja").list();
+         return HibernateUtil.getSession().createQuery("from VrstaPrimanja").list();
     }
     
     public VrstaPrimanja save(VrstaPrimanja vp) throws ObracunPlaceException{

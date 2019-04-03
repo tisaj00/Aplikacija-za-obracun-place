@@ -15,45 +15,47 @@ import java.util.List;
  *
  * @author Josip
  */
-public class ObradaIsplata extends Obrada<Isplata> implements ObradaSucelje<Isplata>{
-    
-     public ObradaIsplata(){
-       super();
-     }
-       
-    public List<Isplata> getLista(){
-         return HibernateUtil.getSession().createQuery("from Isplata").list();
+public class ObradaIsplata extends Obrada<Isplata> implements ObradaSucelje<Isplata> {
+
+    public ObradaIsplata() {
+        super();
     }
-    
-    public Isplata save(Isplata i) throws ObracunPlaceException{
-         
-         kontrola(i);
-         
-         return dao.save(i);
-     }
-    public void delete(Isplata i) throws ObracunPlaceException{
-         
-         if(!i.getObracuni().isEmpty()){
-             throw new ObracunPlaceException("Isplata se ne može obrisati jer ima napravljen obračun");
-         }
-         dao.delete(i);
-     }
-     
-     public void kontrola(Isplata i) throws ObracunPlaceException{
-        
-        if(i.getDatum()==null){
-            throw new ObracunPlaceException("Datum nije definiran");
+
+    public List<Isplata> getLista() {
+        return HibernateUtil.getSession().createQuery("from Isplata").list();
+    }
+
+    public Isplata save(Isplata i) throws ObracunPlaceException {
+
+        kontrola(i);
+
+        return dao.save(i);
+    }
+
+    public void delete(Isplata i) throws ObracunPlaceException {
+
+        if (!i.getObracuni().isEmpty()) {
+            throw new ObracunPlaceException("Isplata se ne može obrisati jer ima napravljen obračun");
         }
-        if(i.getNazivIsplate().trim().isEmpty()){
+        dao.delete(i);
+    }
+
+    public void kontrola(Isplata i) throws ObracunPlaceException {
+
+        
+        if (i.getNazivIsplate().trim().isEmpty()) {
             throw new ObracunPlaceException("Naziv isplate nije definiran");
         }
-        if(i.getNazivIsplate()==null){
+        if (i.getNazivIsplate() == null) {
             throw new ObracunPlaceException("Obavezan unos naziv isplate");
         }
-        if(!i.getVrstaIsplate().equals("Redovan") || !i.getVrstaIsplate().equals("Izvanredan")){
+        if (!i.getVrstaIsplate().equals("Redovan") || !i.getVrstaIsplate().equals("Izvanredan")) {
             throw new ObracunPlaceException("Vrsta isplate mora biti Redovan ili Izvanredan");
         }
-                 
-     }
-     
+        if (i.getDatum() == null) {
+            throw new ObracunPlaceException("Datum nije definiran");
+        }
+
+    }
+
 }

@@ -46,6 +46,11 @@ public class VrstaPrimanja extends Entitet implements Serializable {
     public void setKoeficijent(BigDecimal koeficijent) {
         this.koeficijent = koeficijent;
     }
+
+    @Override
+    public String toString() {
+        return getId()+ "   " + nazivVrstePrimanja +"   " + koeficijent + ",obracuni=" + obracuni;
+    }
     
     
     

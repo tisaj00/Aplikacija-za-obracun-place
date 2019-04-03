@@ -15,26 +15,25 @@ import java.text.SimpleDateFormat;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 
-
 /**
  *
- * @author Josip   
+ * @author Josip
  */
 public class Radnici extends javax.swing.JFrame {
 
     private ObradaRadnik obradaRadnik;
     private DecimalFormat format;
     private SimpleDateFormat datum;
-    
+
     /**
      * Creates new form Radnik
      */
     public Radnici() {
         initComponents();
         obradaRadnik = new ObradaRadnik();
-        
+
         ucitajRadnike();
-        
+
         seticon();
     }
 
@@ -71,6 +70,8 @@ public class Radnici extends javax.swing.JFrame {
         jLabel9 = new javax.swing.JLabel();
         txtIban = new javax.swing.JTextField();
         txtDatum = new org.jdesktop.swingx.JXDatePicker();
+        txtUvjet = new javax.swing.JTextField();
+        chbLimitator = new javax.swing.JCheckBox();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setTitle("Radnici");
@@ -118,11 +119,6 @@ public class Radnici extends javax.swing.JFrame {
         btnDodaj.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnDodaj.setIcon(new javax.swing.ImageIcon("C:\\Users\\Josip\\Documents\\NetBeansProjects\\NetBeans\\ObracunPlace_HibernateORM\\src\\tisaj\\obracunplace\\view\\image\\Button-Add-icon (1).png")); // NOI18N
         btnDodaj.setText("Dodaj");
-        btnDodaj.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnDodajMouseEntered(evt);
-            }
-        });
         btnDodaj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnDodajActionPerformed(evt);
@@ -132,11 +128,6 @@ public class Radnici extends javax.swing.JFrame {
         btnPromjeni.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnPromjeni.setIcon(new javax.swing.ImageIcon("C:\\Users\\Josip\\Documents\\NetBeansProjects\\NetBeans\\ObracunPlace_HibernateORM\\src\\tisaj\\obracunplace\\view\\image\\Button-Refresh-icon.png")); // NOI18N
         btnPromjeni.setText("Promjeni");
-        btnPromjeni.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnPromjeniMouseEntered(evt);
-            }
-        });
         btnPromjeni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPromjeniActionPerformed(evt);
@@ -146,11 +137,6 @@ public class Radnici extends javax.swing.JFrame {
         btnObrisi.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnObrisi.setIcon(new javax.swing.ImageIcon("C:\\Users\\Josip\\Documents\\NetBeansProjects\\NetBeans\\ObracunPlace_HibernateORM\\src\\tisaj\\obracunplace\\view\\image\\Button-Delete-icon.png")); // NOI18N
         btnObrisi.setText("Obriši");
-        btnObrisi.addMouseListener(new java.awt.event.MouseAdapter() {
-            public void mouseEntered(java.awt.event.MouseEvent evt) {
-                btnObrisiMouseEntered(evt);
-            }
-        });
         btnObrisi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnObrisiActionPerformed(evt);
@@ -168,11 +154,14 @@ public class Radnici extends javax.swing.JFrame {
         jLabel9.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jLabel9.setText("IBAN");
 
-        txtDatum.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDatumActionPerformed(evt);
+        txtUvjet.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyReleased(java.awt.event.KeyEvent evt) {
+                txtUvjetKeyReleased(evt);
             }
         });
+
+        chbLimitator.setSelected(true);
+        chbLimitator.setText("Limitiraj na 25");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -180,8 +169,13 @@ public class Radnici extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(34, 34, 34)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtUvjet, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(chbLimitator, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 311, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
@@ -238,14 +232,21 @@ public class Radnici extends javax.swing.JFrame {
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel1)
                             .addComponent(jLabel2)
-                            .addComponent(jLabel4))
-                        .addGap(18, 18, 18)
+                            .addComponent(jLabel4)))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(20, 20, 20)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(txtUvjet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(chbLimitator))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(txtIme, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(txtPrezime, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -281,8 +282,10 @@ public class Radnici extends javax.swing.JFrame {
                             .addComponent(btnObrisi))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnOčisti))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 428, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(19, Short.MAX_VALUE))
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(14, 14, 14)
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 382, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(15, Short.MAX_VALUE))
         );
 
         pack();
@@ -290,143 +293,122 @@ public class Radnici extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void lstEntitetValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstEntitetValueChanged
-        if(evt.getValueIsAdjusting()){
+        if (evt.getValueIsAdjusting()) {
             return;
         }
-        
+
         Radnik r = lstEntitet.getSelectedValue();
-        if(r==null){
+        if (r == null) {
             return;
         }
-        
+
         DateFormat dt = new SimpleDateFormat("dd.MM.yyyy.");
-        
-        
-        
+
         try {
             txtOib.setText((r.getOib()));
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-        
+
         txtIme.setText(r.getIme());
         txtPrezime.setText(r.getPrezime());
         txtSpol.setText(r.getSpol());
-        
+
         try {
-            dt.parse(txtDatum.getDate());
-            
+            dt.format(txtDatum.getDate());
+
             txtDatum.setDate(new String(dt.format(r.getDatumRodenja())));
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         txtMobitel.setText((r.getMobitel()));
-   
+
         try {
             txtOsnovica.setText((r.getOsnovicaPoSatu()));
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
+
         txtOpcina.setText(r.getOpcinaPrebivaliste());
-        
+
         try {
-            txtIban.setText(r.getIban()); 
+            txtIban.setText(r.getIban());
         } catch (Exception e) {
             e.printStackTrace();
         }
-       
-        
-        
+
+
     }//GEN-LAST:event_lstEntitetValueChanged
 
     private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
-       Radnik r = new Radnik();
-      
-       if(!kontrola(r)){
-           return;
-       }
-       
-       try {
-            obradaRadnik.save(r);
-        } catch (ObracunPlaceException e){
-            JOptionPane.showConfirmDialog(null, e.getMessage());
-            return;
-        }
-        
-        ucitajRadnike();
-        ocistiPolja();
-        
-    }//GEN-LAST:event_btnDodajActionPerformed
+        Radnik r = new Radnik();
 
-    private void btnPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniActionPerformed
-        Radnik r = lstEntitet.getSelectedValue();
-        
-        if(r==null){
-            return;
-        }
-        
-        
-        if(!kontrola(r)){
-           return;
-        }
-        
+        preuzmiVrijednosti(r);
+
         try {
             obradaRadnik.save(r);
         } catch (ObracunPlaceException e) {
             JOptionPane.showConfirmDialog(null, e.getMessage());
             return;
         }
-        
-        ucitajRadnike();
+
+        ucitajEntitete();
+        ocistiPolja();
+
+    }//GEN-LAST:event_btnDodajActionPerformed
+
+    private void btnPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniActionPerformed
+        Radnik r = lstEntitet.getSelectedValue();
+
+        if (r == null) {
+            return;
+        }
+
+        preuzmiVrijednosti(r);
+
+        try {
+            obradaRadnik.save(r);
+        } catch (ObracunPlaceException e) {
+            JOptionPane.showConfirmDialog(null, e.getMessage());
+            return;
+        }
+
+        ucitajEntitete();
         ocistiPolja();
     }//GEN-LAST:event_btnPromjeniActionPerformed
 
     private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
         Radnik r = lstEntitet.getSelectedValue();
-        
-        if(r==null){
+
+        if (r == null) {
             JOptionPane.showConfirmDialog(null, "Prvo odaberite radnika");
         }
         try {
             obradaRadnik.delete(r);
-            ucitajRadnike();
+            ucitajEntitete();
             ocistiPolja();
         } catch (Exception e) {
-            JOptionPane.showConfirmDialog(null,"Radnik nije obrisan");
+            JOptionPane.showConfirmDialog(null, "Radnik nije obrisan");
         }
-        
+
     }//GEN-LAST:event_btnObrisiActionPerformed
 
     private void btnOčistiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOčistiActionPerformed
         ocistiPolja();
     }//GEN-LAST:event_btnOčistiActionPerformed
 
-    private void btnDodajMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnDodajMouseEntered
-        
-    }//GEN-LAST:event_btnDodajMouseEntered
+    private void txtUvjetKeyReleased(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_txtUvjetKeyReleased
+        ucitajEntitete();
+    }//GEN-LAST:event_txtUvjetKeyReleased
 
-    private void btnObrisiMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnObrisiMouseEntered
-        
-    }//GEN-LAST:event_btnObrisiMouseEntered
-
-    private void btnPromjeniMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPromjeniMouseEntered
-        
-    }//GEN-LAST:event_btnPromjeniMouseEntered
-
-    private void txtDatumActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDatumActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDatumActionPerformed
-
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDodaj;
     private javax.swing.JButton btnObrisi;
     private javax.swing.JButton btnOčisti;
     private javax.swing.JButton btnPromjeni;
+    private javax.swing.JCheckBox chbLimitator;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -447,36 +429,35 @@ public class Radnici extends javax.swing.JFrame {
     private javax.swing.JTextField txtOsnovica;
     private javax.swing.JTextField txtPrezime;
     private javax.swing.JTextField txtSpol;
+    private javax.swing.JTextField txtUvjet;
     // End of variables declaration//GEN-END:variables
 
     private void ucitajRadnike() {
         DefaultListModel<Radnik> r = new DefaultListModel<>();
-        for(Radnik m : obradaRadnik.getLista()){
+        for (Radnik m : obradaRadnik.getLista()) {
             r.addElement(m);
         }
         lstEntitet.setModel(r);
     }
-    
+
     private void ocistiPolja() {
-       txtIme.setText("");
-       txtPrezime.setText("");
-       txtSpol.setText("");
-       txtMobitel.setText("");
-       txtOib.setText("");
-       txtOsnovica.setText("");
-       txtOpcina.setText("");
-       txtIban.setText("");
-       txtDatum.setText("");
-       
-       
+        txtIme.setText("");
+        txtPrezime.setText("");
+        txtSpol.setText("");
+        txtMobitel.setText("");
+        txtOib.setText("");
+        txtOsnovica.setText("");
+        txtOpcina.setText("");
+        txtIban.setText("");
+        txtDatum.setText("");
+
     }
-    
-    
-    private boolean kontrola(Radnik r) {
-         r.setIme(txtIme.getText());
-         r.setPrezime(txtPrezime.getText());
+
+    private boolean preuzmiVrijednosti(Radnik r) {
+        r.setIme(txtIme.getText());
+        r.setPrezime(txtPrezime.getText());
         r.setSpol(txtSpol.getText());
-                
+
         try {
             r.setMobitel(txtMobitel.getText());
         } catch (Exception e) {
@@ -484,7 +465,7 @@ public class Radnici extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(null, "Mobitel nije broj");
             return false;
         }
-        
+
         try {
             r.setOib((txtOib.getText()));
         } catch (Exception e) {
@@ -493,7 +474,7 @@ public class Radnici extends javax.swing.JFrame {
             return false;
         }
         SimpleDateFormat formatt = new SimpleDateFormat("dd.MM.YYYY.");
-     
+
         try {
             r.setDatumRodenja(formatt.parse(txtDatum.getText()));
         } catch (Exception e) {
@@ -501,15 +482,48 @@ public class Radnici extends javax.swing.JFrame {
             JOptionPane.showConfirmDialog(null, "Datum nije broj");
             return false;
         }
-        
+
         r.setOsnovicaPoSatu(txtOsnovica.getText());
         r.setOpcinaPrebivaliste(txtOpcina.getText());
         r.setIban(txtIban.getText());
- 
+
         return true;
     }
 
     private void seticon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("pocetna.png")));
+    }
+    
+    private void ucitajEntitete() {
+        if (chbLimitator.isSelected()) {
+            DefaultListModel<Radnik> m = new DefaultListModel<>();
+            for (Radnik s : obradaRadnik.getLista(txtUvjet.getText().trim(), chbLimitator.isSelected())) {
+                m.addElement(s);
+            }
+            lstEntitet.setModel(m);
+        } else {
+            DefaultListModel<Radnik> r = new DefaultListModel<>();
+            Radnik rr = new Radnik();
+            rr.setIme("Molim");
+            rr.setPrezime("pričekati");
+            r.addElement(rr);
+            lstEntitet.setModel(r);
+            DuzeUcitanjeEntiteta d = new DuzeUcitanjeEntiteta();
+            d.start();
+        }
+
+    }
+
+    private class DuzeUcitanjeEntiteta extends Thread {
+
+        @Override
+        public void run() {
+            DefaultListModel<Radnik> m = new DefaultListModel<>();
+            for (Radnik s : obradaRadnik.getLista(txtUvjet.getText().trim(), chbLimitator.isSelected())) {
+                m.addElement(s);
+            }
+            lstEntitet.setModel(m);
+        }
+
     }
 }

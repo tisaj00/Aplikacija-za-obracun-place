@@ -17,16 +17,14 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table
-public class Isplata extends Entitet implements Serializable{
-    
+public class Isplata extends Entitet implements Serializable {
 
-    
     @Temporal(TemporalType.DATE)
     private Date datum;
     private String nazivIsplate;
-    
+
     private String vrstaIsplate;
-    
+
     @OneToMany(mappedBy = "isplata")
     private List<Obracun> obracuni = new ArrayList<>();
 
@@ -62,7 +60,4 @@ public class Isplata extends Entitet implements Serializable{
         this.vrstaIsplate = vrstaIsplate;
     }
 
-    
-
-    
 }
