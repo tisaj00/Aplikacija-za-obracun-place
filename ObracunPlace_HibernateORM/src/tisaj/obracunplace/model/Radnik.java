@@ -118,7 +118,7 @@ public class Radnik extends Entitet implements Serializable{
 
     @Override
     public String toString() {
-        return "Radnik"  + getId() +"   "+ime + "  "+ prezime + "   "+ spol +"  "+oib ;
+        return getId() +"   "+ime + "  "+ prezime + "   "+ spol +"  "+oib ;
     }
     
     

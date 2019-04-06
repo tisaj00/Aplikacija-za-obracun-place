@@ -58,10 +58,11 @@ public class Obracun extends Entitet implements Serializable{
         this.kolicinaSati = kolicinaSati;
     }
 
-   
+    @Override
+    public String toString() {
+        return getId() + "  " + getRadnik() + "   " + getIsplata() + "  " +getVrstaPrimanja() + " " + getKolicinaSati();
+     }
 
-   
-    
     
     
 }

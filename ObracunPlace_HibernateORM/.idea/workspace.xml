@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="6c7d5f7a-019c-45ba-823b-c64c0418289a" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/pomocno/BCrypt.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/view/LoginForm.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/view/LoginForm.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/view/Radnici.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/view/Radnici.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/view/RegisterForm.form" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/view/RegisterForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Edunova01/nbproject/build-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Edunova01/nbproject/build-impl.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Edunova01/nbproject/genfiles.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Edunova01/nbproject/genfiles.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Edunova01/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Edunova01/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Edunova02/nbproject/build-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Edunova02/nbproject/build-impl.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Edunova02/nbproject/genfiles.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Edunova02/nbproject/genfiles.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Edunova02/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Edunova02/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Edunova03/nbproject/build-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../Edunova03/nbproject/build-impl.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Edunova03/nbproject/genfiles.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Edunova03/nbproject/genfiles.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Edunova03/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../Edunova03/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../HibernateORM/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM/src/edunova/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HibernateORM/src/edunova/Start.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM/src/edunova/controller/ObradaPredavac.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HibernateORM/src/edunova/controller/ObradaPredavac.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM/src/edunova/model/Grupa.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HibernateORM/src/edunova/model/Grupa.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM/src/edunova/model/Predavac.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HibernateORM/src/edunova/model/Predavac.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM/src/edunova/view/Izbornik.form" beforeDir="false" afterPath="$PROJECT_DIR$/../HibernateORM/src/edunova/view/Izbornik.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM/src/edunova/view/Izbornik.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HibernateORM/src/edunova/view/Izbornik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM/src/edunova/view/Polaznici.java" beforeDir="false" afterPath="$PROJECT_DIR$/../HibernateORM/src/edunova/view/Polaznici.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/hamcrest/hamcrest-core-1.3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/hibernate/antlr-2.7.7.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/hibernate/classmate-1.3.0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/hibernate/dom4j-1.6.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/hibernate/geronimo-jta_1.1_spec-1.1.1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/hibernate/hibernate-commons-annotations-5.0.1.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/hibernate/hibernate-core-5.1.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/hibernate/hibernate-jpa-2.1-api-1.0.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/hibernate/jandex-2.0.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/hibernate/javassist-3.20.0-GA.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/hibernate/jboss-logging-3.3.0.Final.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/junit_4/junit-4.12-javadoc.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/junit_4/junit-4.12-sources.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/junit_4/junit-4.12.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/mysql-connector-java-5.1.39-bin.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/lib/nblibraries.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/manifest.mf" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/nbproject/project.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/edunova/Start.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/edunova/controller/DAO.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/edunova/controller/Obrada.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/edunova/controller/ObradaIsplata.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/edunova/controller/ObradaObracun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/edunova/controller/ObradaRadnik.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/edunova/controller/ObradaVrstaPrimanja.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/edunova/model/Entitet.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/edunova/model/Isplata.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/edunova/model/Obracun.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/edunova/model/Radnik.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/edunova/model/VrstaPrimanja.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/edunova/pomocno/AplikacijaException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/edunova/pomocno/HibernateUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../HibernateORM_moje/src/hibernate.cfg.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../MojaAplikacija/lib/mysql-connector-java-8.0.15.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ObracunPlaceLogin/nbproject/build-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../ObracunPlaceLogin/nbproject/build-impl.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ObracunPlaceLogin/nbproject/genfiles.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ObracunPlaceLogin/nbproject/genfiles.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ObracunPlaceLogin/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/../ObracunPlaceLogin/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisajObracunPlace/BCrypt.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisaj/obracunplace/login/BCrypt.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisajObracunPlace/Baza.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisaj/obracunplace/login/Baza.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisajObracunPlace/LoginForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisaj/obracunplace/login/LoginForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisajObracunPlace/LoginForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisaj/obracunplace/login/LoginForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisajObracunPlace/RegisterForm.form" beforeDir="false" afterPath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisaj/obracunplace/login/RegisterForm.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisajObracunPlace/RegisterForm.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisaj/obracunplace/login/RegisterForm.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisajObracunPlace/Welcome.form" beforeDir="false" afterPath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisaj/obracunplace/login/Welcome.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisajObracunPlace/Welcome.java" beforeDir="false" afterPath="$PROJECT_DIR$/../ObracunPlaceLogin/src/tisaj/obracunplace/login/Welcome.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/nblibraries.properties" beforeDir="false" afterPath="$PROJECT_DIR$/lib/nblibraries.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/build-impl.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/build-impl.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/genfiles.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/genfiles.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/nbproject/project.properties" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hibernate.cfg.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tisaj/obracunplace/Start.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/Start.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tisaj/obracunplace/controller/ObradaIsplata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/controller/ObradaIsplata.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tisaj/obracunplace/controller/ObradaObracun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/controller/ObradaObracun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tisaj/obracunplace/controller/ObradaRadnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/controller/ObradaRadnik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tisaj/obracunplace/controller/ObradaVrstaPrimanja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/controller/ObradaVrstaPrimanja.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tisaj/obracunplace/model/Isplata.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/model/Isplata.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tisaj/obracunplace/model/Radnik.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/model/Radnik.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tisaj/obracunplace/model/VrstaPrimanja.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/model/VrstaPrimanja.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tisaj/obracunplace/pomocno/HibernateUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/pomocno/HibernateUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tisaj/obracunplace/pomocno/ObradaSucelje.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/pomocno/ObradaSucelje.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tisaj/obracunplace/view/SplashScreen.form" beforeDir="false" afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/view/SplashScreen.form" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/tisaj/obracunplace/view/SplashScreen.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/tisaj/obracunplace/view/SplashScreen.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Zadaci/build.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Zadaci/nbproject/build-impl.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Zadaci/nbproject/genfiles.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Zadaci/nbproject/project.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../Zadaci/nbproject/project.xml" beforeDir="false" />
+    </list>
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/tisaj/obracunplace/view/LoginForm.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#12683#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/tisaj/obracunplace/view/Radnici.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-170">
+              <folding>
+                <element signature="e#0#25093#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="279" />
+    <option name="y" value="-26" />
+    <option name="width" value="1400" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane" />
+      <pane id="PackagesPane" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="6c7d5f7a-019c-45ba-823b-c64c0418289a" name="Default Changelist" comment="" />
+      <created>1554576516233</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1554576516233</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info id="Image Layers" />
+      <window_info id="Designer" />
+      <window_info id="UI Designer" />
+      <window_info id="Capture Tool" />
+      <window_info id="Favorites" side_tool="true" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.17857143" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Version Control" />
+      <window_info anchor="bottom" id="Terminal" />
+      <window_info anchor="bottom" id="Event Log" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="right" id="Palette" />
+      <window_info anchor="right" id="Theme Preview" />
+      <window_info anchor="right" id="Maven" />
+      <window_info anchor="right" id="Capture Analysis" />
+      <window_info anchor="right" id="Palette&#9;" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+    </layout>
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/tisaj/obracunplace/view/LoginForm.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#12683#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/tisaj/obracunplace/view/Radnici.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-170">
+          <folding>
+            <element signature="e#0#25093#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

@@ -60,4 +60,10 @@ public class Isplata extends Entitet implements Serializable {
         this.vrstaIsplate = vrstaIsplate;
     }
 
+    @Override
+    public String toString() {
+        return getNazivIsplate();
+    }
+
+    
 }

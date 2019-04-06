@@ -49,7 +49,7 @@ public class VrstaPrimanja extends Entitet implements Serializable {
 
     @Override
     public String toString() {
-        return getId()+ "   " + nazivVrstePrimanja +"   " + koeficijent + ",obracuni=" + obracuni;
+        return nazivVrstePrimanja +"   " + koeficijent;
     }
     
     

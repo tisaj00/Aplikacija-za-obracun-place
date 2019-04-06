@@ -6,6 +6,16 @@
 package tisaj.obracunplace.view;
 
 import java.awt.Toolkit;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.DefaultListModel;
+import tisaj.obracunplace.controller.ObradaIsplata;
+import tisaj.obracunplace.controller.ObradaObracun;
+import tisaj.obracunplace.controller.ObradaRadnik;
+import tisaj.obracunplace.controller.ObradaVrstaPrimanja;
+import tisaj.obracunplace.model.Isplata;
+import tisaj.obracunplace.model.Obracun;
+import tisaj.obracunplace.model.Radnik;
+import tisaj.obracunplace.model.VrstaPrimanja;
 
 /**
  *
@@ -13,13 +23,69 @@ import java.awt.Toolkit;
  */
 public class Obracuni extends javax.swing.JFrame {
 
+    private ObradaObracun obradaEntitet;
+    private ObradaRadnik obradaRadnici;
+  
     /**
      * Creates new form Obracuni
      */
     public Obracuni() {
         initComponents();
+        obradaEntitet = new ObradaObracun();
+        obradaRadnici = new ObradaRadnik();
+        
+        DefaultComboBoxModel<VrstaPrimanja> ms = new DefaultComboBoxModel<>();
+        VrstaPrimanja vp = new VrstaPrimanja();
+        vp.setId(0);
+        vp.setNazivVrstePrimanja("Odaberite vrstu primanja");     
+        ms.addElement(vp);
+        new ObradaVrstaPrimanja().getLista().forEach((s) -> {
+            ms.addElement(s);
+        });
+        cmbVrstaPrimanja.setModel(ms);
+        
+        DefaultComboBoxModel<Isplata> i = new DefaultComboBoxModel<>();
+        Isplata ii = new Isplata();
+        ii.setId(0);
+        ii.setNazivIsplate("Odaberite naziv isplate");
+        i.addElement(ii);
+        new ObradaIsplata().getLista().forEach((is) -> {
+            i.addElement(is);
+        });
+        cmbIsplata.setModel(i);
+        
+        DefaultComboBoxModel<Radnik> r = new DefaultComboBoxModel<>();
+        Radnik rr = new Radnik();
+        rr.setId(0);
+        rr.setIme("Odaberite");
+        rr.setPrezime("radnika");
+        r.addElement(rr);
+        new ObradaRadnik().getLista().forEach((rad) -> {
+            r.addElement(rad);
+        });
+        cmbRadnik.setModel(r);
+        
+        ucitajPodatke();
+        ucitajRadnike();
         seticon();
     }
+    
+    private void ucitajPodatke() {
+        DefaultListModel<Obracun> m = new DefaultListModel<>();
+        obradaEntitet.getLista().forEach((o) -> {
+            m.addElement(o);
+        });
+        lstEntiteti.setModel(m);
+    }
+    
+    private void ucitajRadnike(){
+        DefaultListModel<Radnik> r = new DefaultListModel<>();
+        obradaRadnici.getLista().forEach((rr)-> {
+          r.addElement(rr);
+           });
+        lstRadnici.setModel(r);
+    }
+    
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -30,27 +96,210 @@ public class Obracuni extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lstEntiteti = new javax.swing.JList<>();
+        jLabel1 = new javax.swing.JLabel();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lstRadnici = new javax.swing.JList<>();
+        btnDodaj = new javax.swing.JButton();
+        btnObrisi = new javax.swing.JButton();
+        btnPromjeni = new javax.swing.JButton();
+        txtUvjet = new javax.swing.JTextField();
+        chbLimitator = new javax.swing.JCheckBox();
+        jSpinner1 = new javax.swing.JSpinner();
+        cmbVrstaPrimanja = new javax.swing.JComboBox<>();
+        cmbIsplata = new javax.swing.JComboBox<>();
+        cmbRadnik = new javax.swing.JComboBox<>();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Obračuni");
+
+        lstEntiteti.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstEntitetiValueChanged(evt);
+            }
+        });
+        jScrollPane1.setViewportView(lstEntiteti);
+
+        jLabel1.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel1.setText("Radnik");
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel2.setText("Isplata");
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel3.setText("Vrsta Primanja");
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel4.setText("Količina sati");
+
+        lstRadnici.addListSelectionListener(new javax.swing.event.ListSelectionListener() {
+            public void valueChanged(javax.swing.event.ListSelectionEvent evt) {
+                lstRadniciValueChanged(evt);
+            }
+        });
+        jScrollPane2.setViewportView(lstRadnici);
+
+        btnDodaj.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnDodaj.setIcon(new javax.swing.ImageIcon("C:\\Users\\Josip\\Documents\\NetBeansProjects\\NetBeans\\ObracunPlace_HibernateORM\\src\\tisaj\\obracunplace\\view\\image\\Button-Add-icon (1).png")); // NOI18N
+        btnDodaj.setText("Dodaj");
+        btnDodaj.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDodajActionPerformed(evt);
+            }
+        });
+
+        btnObrisi.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnObrisi.setIcon(new javax.swing.ImageIcon("C:\\Users\\Josip\\Documents\\NetBeansProjects\\NetBeans\\ObracunPlace_HibernateORM\\src\\tisaj\\obracunplace\\view\\image\\Button-Delete-icon.png")); // NOI18N
+        btnObrisi.setText("Obriši");
+        btnObrisi.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnObrisiActionPerformed(evt);
+            }
+        });
+
+        btnPromjeni.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnPromjeni.setIcon(new javax.swing.ImageIcon("C:\\Users\\Josip\\Documents\\NetBeansProjects\\NetBeans\\ObracunPlace_HibernateORM\\src\\tisaj\\obracunplace\\view\\image\\Button-Refresh-icon.png")); // NOI18N
+        btnPromjeni.setText("Promjeni");
+        btnPromjeni.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPromjeniActionPerformed(evt);
+            }
+        });
+
+        chbLimitator.setSelected(true);
+        chbLimitator.setText("Limitiraj na 25");
+
+        jSpinner1.setFont(new java.awt.Font("Tahoma", 0, 18)); // NOI18N
+        jSpinner1.setModel(new javax.swing.SpinnerNumberModel(0.0d, 0.0d, null, 1.0d));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 242, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                        .addComponent(jLabel2)
+                        .addComponent(jLabel3)
+                        .addComponent(jLabel4)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                            .addComponent(btnDodaj, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnObrisi, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(jLabel1, javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(btnPromjeni, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(cmbIsplata, 0, 205, Short.MAX_VALUE)
+                        .addComponent(cmbVrstaPrimanja, 0, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(cmbRadnik, javax.swing.GroupLayout.PREFERRED_SIZE, 202, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(txtUvjet, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(chbLimitator, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 232, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(482, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, layout.createSequentialGroup()
+                        .addGap(46, 46, 46)
+                        .addComponent(jLabel1)
+                        .addGap(23, 23, 23)
+                        .addComponent(cmbRadnik, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(23, 23, 23)
+                        .addComponent(jLabel2)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbIsplata, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel3)
+                        .addGap(18, 18, 18)
+                        .addComponent(cmbVrstaPrimanja, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(jLabel4)
+                        .addGap(18, 18, 18)
+                        .addComponent(jSpinner1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(35, 35, 35)
+                        .addComponent(btnDodaj)
+                        .addGap(30, 30, 30)
+                        .addComponent(btnPromjeni)
+                        .addGap(29, 29, 29)
+                        .addComponent(btnObrisi))
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 494, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(chbLimitator)
+                                    .addComponent(txtUvjet, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 472, javax.swing.GroupLayout.PREFERRED_SIZE)))))
+                .addGap(0, 34, Short.MAX_VALUE))
         );
 
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
+        
+    }//GEN-LAST:event_btnDodajActionPerformed
+
+    private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
+       
+    }//GEN-LAST:event_btnObrisiActionPerformed
+
+    private void btnPromjeniActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPromjeniActionPerformed
+        
+    }//GEN-LAST:event_btnPromjeniActionPerformed
+
+    private void lstEntitetiValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstEntitetiValueChanged
+        if(evt.getValueIsAdjusting()){
+            return;
+        }
+        
+        Obracun o = lstEntiteti.getSelectedValue();
+        
+        
+        
+        
+    }//GEN-LAST:event_lstEntitetiValueChanged
+
+    private void lstRadniciValueChanged(javax.swing.event.ListSelectionEvent evt) {//GEN-FIRST:event_lstRadniciValueChanged
+        // TODO add your handling code here:
+    }//GEN-LAST:event_lstRadniciValueChanged
+
    private void seticon() {
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("obracun.png")));
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnDodaj;
+    private javax.swing.JButton btnObrisi;
+    private javax.swing.JButton btnPromjeni;
+    private javax.swing.JCheckBox chbLimitator;
+    private javax.swing.JComboBox<Isplata> cmbIsplata;
+    private javax.swing.JComboBox<Radnik> cmbRadnik;
+    private javax.swing.JComboBox<VrstaPrimanja> cmbVrstaPrimanja;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JSpinner jSpinner1;
+    private javax.swing.JList<Obracun> lstEntiteti;
+    private javax.swing.JList<Radnik> lstRadnici;
+    private javax.swing.JTextField txtUvjet;
     // End of variables declaration//GEN-END:variables
 }

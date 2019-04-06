@@ -53,7 +53,6 @@ public class Izbornik extends javax.swing.JFrame {
 
         jMenu1.setText("Izbornik");
 
-        jMenuItem1.setBackground(new java.awt.Color(255, 255, 102));
         jMenuItem1.setText("Radnici");
         jMenuItem1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
