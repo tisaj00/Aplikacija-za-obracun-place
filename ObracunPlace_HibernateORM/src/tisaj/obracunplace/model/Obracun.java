@@ -24,7 +24,7 @@ public class Obracun extends Entitet implements Serializable{
     @ManyToOne   
     private Radnik radnik;
     
-    private int kolicinaSati;
+    private double kolicinaSati;
 
     public Isplata getIsplata() {
         return isplata;
@@ -50,17 +50,19 @@ public class Obracun extends Entitet implements Serializable{
         this.radnik = radnik;
     }
 
-    public int getKolicinaSati() {
+    public double getKolicinaSati() {
         return kolicinaSati;
     }
 
-    public void setKolicinaSati(int kolicinaSati) {
+    public void setKolicinaSati(double kolicinaSati) {
         this.kolicinaSati = kolicinaSati;
     }
 
+    
+
     @Override
     public String toString() {
-        return getId() + "  " + getRadnik() + "   " + getIsplata() + "  " +getVrstaPrimanja() + " " + getKolicinaSati();
+        return getId() + "  " + getRadnik().getIme() + "   " + getRadnik().getPrezime()+"   "+ getIsplata() + "  " +getVrstaPrimanja() + "   Broj sati:" + getKolicinaSati();
      }
 
     

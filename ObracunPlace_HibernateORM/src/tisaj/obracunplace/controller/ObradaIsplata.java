@@ -49,8 +49,11 @@ public class ObradaIsplata extends Obrada<Isplata> implements ObradaSucelje<Ispl
         if (i.getNazivIsplate() == null) {
             throw new ObracunPlaceException("Obavezan unos naziv isplate");
         }
-        if (!i.getVrstaIsplate().equals("Redovan") || !i.getVrstaIsplate().equals("Izvanredan")) {
-            throw new ObracunPlaceException("Vrsta isplate mora biti Redovan ili Izvanredan");
+        if (i.getVrstaIsplate().trim().isEmpty()) {
+            throw new ObracunPlaceException("Vrsta isplate nije definirana");
+        }
+        if (i.getVrstaIsplate()==null) {
+            throw new ObracunPlaceException("Obavezan unos isplate");
         }
         if (i.getDatum() == null) {
             throw new ObracunPlaceException("Datum nije definiran");

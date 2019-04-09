@@ -41,7 +41,7 @@ public class ObradaObracun extends Obrada<Obracun> implements ObradaSucelje<Obra
      
      public void kontrola(Obracun ob) throws ObracunPlaceException{
      
-         if(ob.getKolicinaSati()<0){
+         if(ob.getKolicinaSati()<=0){
              throw new ObracunPlaceException("Količina sati mora bit pozitivan broj");
          }
          

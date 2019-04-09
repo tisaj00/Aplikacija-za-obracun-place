@@ -6,6 +6,7 @@
 package tisaj.obracunplace.view;
 
 import tisaj.obracunplace.controller.ObradaObracun;
+import tisaj.obracunplace.controller.ObradaRadnik;
 
 /**
  *
@@ -38,7 +39,7 @@ public class SplashScreen extends javax.swing.JFrame {
  
             }
             jblPoruka.setText("Spajam se na bazu....");
-            if(new ObradaObracun().getLista().size()>0){
+            if(new ObradaRadnik().getLista().size()>0){
                 jblPoruka.setText("Uspješno startam program");
                 for(int i=50;i<=100;i++){
                 jProgressBar1.setValue(i);

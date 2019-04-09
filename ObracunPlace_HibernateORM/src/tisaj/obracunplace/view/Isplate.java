@@ -5,6 +5,9 @@
  */
 package tisaj.obracunplace.view;
 
+import java.time.LocalDate;
+import java.time.ZoneId;
+import java.util.Locale;
 import javax.swing.DefaultListModel;
 import javax.swing.JOptionPane;
 import tisaj.obracunplace.controller.ObradaIsplata;
@@ -14,7 +17,7 @@ import tisaj.obracunplace.pomocno.ObracunPlaceException;
 
 /**
  *
- * @author Josip DODAT DATUM I SVE ZA DATUM
+ * @author Josip
  *
  */
 public class Isplate extends javax.swing.JFrame {
@@ -28,6 +31,12 @@ public class Isplate extends javax.swing.JFrame {
         initComponents();
         obradaEntitet = new ObradaIsplata();
         ucitajIsplate();
+        dpDatumIsplate.setLocale(new Locale("hr", "HR"));
+        dpDatumIsplate.getSettings().setTranslationToday("Danas");
+        dpDatumIsplate.getSettings().setTranslationClear("Poništi");
+        dpDatumIsplate.getSettings().setFormatForDatesCommonEra("dd. MMMM yyyy.");
+        dpDatumIsplate.getSettings().setFormatForDatesBeforeCommonEra("dd. MMMM uuuu.");
+
     }
 
     /**
@@ -241,9 +250,14 @@ public class Isplate extends javax.swing.JFrame {
         txtNaziv.setText(entitet.getNazivIsplate());
         txtVrsta.setText(entitet.getVrstaIsplate());
 
-    }//GEN-LAST:event_lstEntitetiValueChanged
+        if (entitet.getDatum() != null) {
+            java.util.Date dt = new java.util.Date(entitet.getDatum().getTime());
+            LocalDate d = dt.toInstant().atZone(ZoneId.systemDefault()).toLocalDate();
+            dpDatumIsplate.setDate(d);
+        }
 
-    
+
+    }//GEN-LAST:event_lstEntitetiValueChanged
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
@@ -268,15 +282,24 @@ public class Isplate extends javax.swing.JFrame {
         }
         lstEntiteti.setModel(i);
     }
+
     private void ocistiPolja() {
         txtNaziv.setText("");
         txtVrsta.setText("");
+        dpDatumIsplate.setDate(null);
 
     }
 
     private void preuzmiVrijednosti(Isplata entitet) {
         entitet.setNazivIsplate(txtNaziv.getText());
         entitet.setVrstaIsplate(txtVrsta.getText());
+
+        try {
+            java.util.Date date = java.util.Date.from(dpDatumIsplate.getDate().atStartOfDay(ZoneId.systemDefault()).toInstant());
+            entitet.setDatum(date);
+        } catch (Exception e) {
+            entitet.setDatum(null);
+        }
 
     }
 }

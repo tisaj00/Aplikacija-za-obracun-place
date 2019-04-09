@@ -36,8 +36,8 @@
                   <Component id="jScrollPane1" min="-2" pref="311" max="-2" attributes="0"/>
               </Group>
               <EmptySpace type="separate" max="-2" attributes="0"/>
-              <Group type="103" groupAlignment="0" attributes="0">
-                  <Group type="102" attributes="0">
+              <Group type="103" groupAlignment="1" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
                       <Group type="103" groupAlignment="0" attributes="0">
                           <Component id="jLabel9" min="-2" max="-2" attributes="0"/>
                           <Group type="102" attributes="0">
@@ -47,10 +47,10 @@
                           </Group>
                           <Component id="txtIban" alignment="0" min="-2" pref="231" max="-2" attributes="0"/>
                       </Group>
-                      <EmptySpace min="0" pref="175" max="32767" attributes="0"/>
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" attributes="0">
-                      <Group type="103" groupAlignment="0" attributes="0">
+                  <Group type="102" alignment="0" attributes="0">
+                      <Group type="103" groupAlignment="1" attributes="0">
                           <Group type="102" alignment="0" attributes="0">
                               <Component id="txtIme" min="-2" pref="80" max="-2" attributes="0"/>
                               <EmptySpace min="-2" pref="38" max="-2" attributes="0"/>
@@ -84,25 +84,23 @@
                               <EmptySpace min="-2" pref="202" max="-2" attributes="0"/>
                               <Component id="jLabel6" min="-2" max="-2" attributes="0"/>
                           </Group>
-                          <Group type="103" alignment="0" groupAlignment="1" attributes="0">
-                              <Group type="102" attributes="0">
-                                  <Component id="txtOib" min="-2" pref="126" max="-2" attributes="0"/>
-                                  <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
-                                  <Component id="dpDatumRodenja" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <Group type="102" attributes="0">
-                                  <Component id="btnDodaj" min="-2" max="-2" attributes="0"/>
-                                  <EmptySpace type="unrelated" max="-2" attributes="0"/>
-                                  <Component id="btnPromjeni" min="-2" pref="123" max="-2" attributes="0"/>
-                                  <EmptySpace type="separate" max="-2" attributes="0"/>
-                                  <Group type="103" groupAlignment="0" max="-2" attributes="0">
-                                      <Component id="btnOčisti" max="32767" attributes="0"/>
-                                      <Component id="btnObrisi" max="32767" attributes="0"/>
-                                  </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="txtOib" min="-2" pref="126" max="-2" attributes="0"/>
+                              <EmptySpace min="-2" pref="95" max="-2" attributes="0"/>
+                              <Component id="dpDatumRodenja" min="-2" max="-2" attributes="0"/>
+                          </Group>
+                          <Group type="102" alignment="0" attributes="0">
+                              <Component id="btnDodaj" min="-2" pref="114" max="-2" attributes="0"/>
+                              <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                              <Component id="btnPromjeni" min="-2" pref="123" max="-2" attributes="0"/>
+                              <EmptySpace type="separate" max="-2" attributes="0"/>
+                              <Group type="103" groupAlignment="0" attributes="0">
+                                  <Component id="btnOčisti" min="-2" pref="103" max="-2" attributes="0"/>
+                                  <Component id="btnObrisi" min="-2" max="-2" attributes="0"/>
                               </Group>
                           </Group>
                       </Group>
-                      <EmptySpace max="32767" attributes="0"/>
+                      <EmptySpace pref="20" max="32767" attributes="0"/>
                   </Group>
               </Group>
           </Group>
@@ -173,13 +171,14 @@
                       </Group>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnOčisti" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace min="0" pref="37" max="32767" attributes="0"/>
                   </Group>
-                  <Group type="102" alignment="0" attributes="0">
+                  <Group type="102" attributes="0">
                       <EmptySpace min="-2" pref="14" max="-2" attributes="0"/>
-                      <Component id="jScrollPane1" min="-2" pref="382" max="-2" attributes="0"/>
+                      <Component id="jScrollPane1" max="32767" attributes="0"/>
                   </Group>
               </Group>
-              <EmptySpace pref="48" max="32767" attributes="0"/>
+              <EmptySpace max="-2" attributes="0"/>
           </Group>
       </Group>
     </DimensionLayout>
@@ -209,18 +208,18 @@
     </Container>
     <Component class="javax.swing.JLabel" name="jLabel1">
       <Properties>
+        <Property name="text" type="java.lang.String" value="Ime"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Ime"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel2">
       <Properties>
+        <Property name="text" type="java.lang.String" value="Prezime"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Prezime"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtIme">
@@ -235,20 +234,20 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel3">
       <Properties>
+        <Property name="text" type="java.lang.String" value="Oib"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Oib"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtOib">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel4">
       <Properties>
+        <Property name="text" type="java.lang.String" value="Spol"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Spol"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtSpol">
@@ -258,28 +257,28 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel5">
       <Properties>
+        <Property name="text" type="java.lang.String" value="Mobitel"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Mobitel"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtMobitel">
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel6">
       <Properties>
+        <Property name="text" type="java.lang.String" value="Datum ro&#x111;enja"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Datum ro&#x111;enja"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel7">
       <Properties>
+        <Property name="text" type="java.lang.String" value="Osnovica po satu"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Osnovica po satu"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtOsnovica">
@@ -289,23 +288,23 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel8">
       <Properties>
+        <Property name="text" type="java.lang.String" value="Op&#x107;ina prebivali&#x161;ta"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="Op&#x107;ina prebivali&#x161;ta"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtOpcina">
     </Component>
     <Component class="javax.swing.JButton" name="btnDodaj">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="1"/>
-        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="2" name="C:\Users\Josip\Documents\NetBeansProjects\NetBeans\ObracunPlace_HibernateORM\src\tisaj\obracunplace\view\image\Button-Add-icon (1).png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Dodaj"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnDodajActionPerformed"/>
@@ -313,13 +312,13 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnPromjeni">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="1"/>
-        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="2" name="C:\Users\Josip\Documents\NetBeansProjects\NetBeans\ObracunPlace_HibernateORM\src\tisaj\obracunplace\view\image\Button-Refresh-icon.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Promjeni"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPromjeniActionPerformed"/>
@@ -327,13 +326,13 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnObrisi">
       <Properties>
-        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
-          <Font name="Tahoma" size="12" style="1"/>
-        </Property>
         <Property name="icon" type="javax.swing.Icon" editor="org.netbeans.modules.form.editors2.IconEditor">
           <Image iconType="2" name="C:\Users\Josip\Documents\NetBeansProjects\NetBeans\ObracunPlace_HibernateORM\src\tisaj\obracunplace\view\image\Button-Delete-icon.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Obri&#x161;i"/>
+        <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
+          <Font name="Tahoma" size="12" style="1"/>
+        </Property>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnObrisiActionPerformed"/>
@@ -341,10 +340,10 @@
     </Component>
     <Component class="javax.swing.JButton" name="btnO&#x10d;isti">
       <Properties>
+        <Property name="text" type="java.lang.String" value="O&#x10d;isti"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="O&#x10d;isti"/>
       </Properties>
       <Events>
         <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnO&#x10d;istiActionPerformed"/>
@@ -352,10 +351,10 @@
     </Component>
     <Component class="javax.swing.JLabel" name="jLabel9">
       <Properties>
+        <Property name="text" type="java.lang.String" value="IBAN"/>
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Times New Roman" size="12" style="1"/>
         </Property>
-        <Property name="text" type="java.lang.String" value="IBAN"/>
       </Properties>
     </Component>
     <Component class="javax.swing.JTextField" name="txtIban">
