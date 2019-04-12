@@ -62,7 +62,7 @@ public class Obracun extends Entitet implements Serializable{
 
     @Override
     public String toString() {
-        return getId() + "  " + getRadnik().getIme() + "   " + getRadnik().getPrezime()+"   "+ getIsplata() + "  " +getVrstaPrimanja() + "   Broj sati:" + getKolicinaSati();
+            return getId() +"   "+ getIsplata();
      }
 
     

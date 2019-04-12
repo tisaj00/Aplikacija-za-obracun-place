@@ -78,7 +78,7 @@ public class SplashScreen extends javax.swing.JFrame {
         jblPoruka.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jblPoruka.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tisaj/obracunplace/view/image/photo-1496674205429-924b32acd421.jpg"))); // NOI18N
+        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tisaj/obracunplace/pomocno/photo-1496674205429-924b32acd421.jpg"))); // NOI18N
         jLabel1.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());

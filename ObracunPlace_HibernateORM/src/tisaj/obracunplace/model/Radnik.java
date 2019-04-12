@@ -17,23 +17,23 @@ import javax.persistence.TemporalType;
 
 @Entity
 @Table
-public class Radnik extends Entitet implements Serializable{
-    
+public class Radnik extends Entitet implements Serializable {
+
     private String ime;
     private String prezime;
     private String oib;
     private String spol;
-    
+
     @Temporal(TemporalType.DATE)
     private Date datumRodenja;
-    
+
     private String mobitel;
     private String osnovicaPoSatu;
     private String opcinaPrebivaliste;
-    
+
     private String iban;
 
-    @OneToMany (mappedBy = "radnik")
+    @OneToMany(mappedBy = "radnik")
     private List<Obracun> obracuni = new ArrayList<>();
 
     public String getIban() {
@@ -118,9 +118,7 @@ public class Radnik extends Entitet implements Serializable{
 
     @Override
     public String toString() {
-        return getId() +"   "+ime + "  "+ prezime + "   "+ spol +"  "+oib ;
+        return getId() + "   " + ime + "  " + prezime + "   " + spol + "  " + oib;
     }
-    
-    
-    
+
 }

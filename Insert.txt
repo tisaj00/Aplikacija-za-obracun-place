@@ -1,0 +1,9 @@
+create database obracun_place_hib;
+use database obracun_place_hib;
+
+insert into radnik (ime,prezime,spol,datumRodenja,iban,oib,mobitel,opcinaPrebivaliste,osnovicaPoSatu) 
+values ("Mato","Ivic","M","1988-12-12","HR3023600003551486632","57297609108","09187426171","Osijek","88");
+
+insert into isplata (nazivIsplate,datum,vrstaIsplate)values ("Isplata za kolovoz","2019-4-10","Neredovan");
+
+insert into vrstaprimanja (nazivVrstePrimanja,koeficijent)values ("Nocni rad","28.5");

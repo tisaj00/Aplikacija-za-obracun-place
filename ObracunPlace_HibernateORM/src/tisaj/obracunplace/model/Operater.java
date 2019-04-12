@@ -6,26 +6,19 @@
 package tisaj.obracunplace.model;
 
 import java.io.Serializable;
-import java.util.Date;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.Temporal;
-import javax.persistence.TemporalType;
 
 @Entity
-public class Operater extends Entitet implements Serializable{
-    
+public class Operater extends Entitet implements Serializable {
+
     private String ime;
     private String prezime;
     private String username;
-    
+
     @Column(columnDefinition = "char(60)")
     private String password;
-    
-    
-    
-    
-    
+
     public String getIme() {
         return ime;
     }
@@ -58,11 +51,4 @@ public class Operater extends Entitet implements Serializable{
         this.password = password;
     }
 
-    
-    
-    
-    
-
-
-    
 }

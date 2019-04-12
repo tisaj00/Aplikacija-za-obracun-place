@@ -16,44 +16,45 @@ import java.util.List;
  *
  * @author Josip
  */
-public class ObradaVrstaPrimanja extends Obrada<VrstaPrimanja> implements ObradaSucelje<VrstaPrimanja>{
-    
-    public ObradaVrstaPrimanja(){
+public class ObradaVrstaPrimanja extends Obrada<VrstaPrimanja> implements ObradaSucelje<VrstaPrimanja> {
+
+    public ObradaVrstaPrimanja() {
         super();
     }
-    
-    public List<VrstaPrimanja> getLista(){
-         return HibernateUtil.getSession().createQuery("from VrstaPrimanja").list();
+
+    public List<VrstaPrimanja> getLista() {
+        return HibernateUtil.getSession().createQuery("from VrstaPrimanja").list();
     }
-    
-    public VrstaPrimanja save(VrstaPrimanja vp) throws ObracunPlaceException{
-         
-        
-         kontrola(vp);
-         
-         return dao.save(vp);
-     }
-    
-     public void delete(VrstaPrimanja vp) throws ObracunPlaceException{
-         if(!vp.getObracuni().isEmpty()){
-             throw  new ObracunPlaceException("Vrta primanja se ne može obrisati jer je u obračunu");
-         }
-         dao.delete(vp);
-     }
-     
-     public void kontrola(VrstaPrimanja vp) throws ObracunPlaceException{
-     
-         if(vp.getNazivVrstePrimanja().trim().isEmpty()){
-             throw new ObracunPlaceException("Vrijednost nije definirana");
-         }
-         if(vp.getNazivVrstePrimanja()==null){
-             throw new ObracunPlaceException("Obevazan unos vrijednosti");
-         }
-         if(vp.getKoeficijent().compareTo(BigDecimal.ZERO)<=0){
-             throw new ObracunPlaceException("Koeficijent mora bit pozitivan broj");
-         }
-         
-         
-     }
-    
+
+    public VrstaPrimanja save(VrstaPrimanja vp) throws ObracunPlaceException {
+
+        kontrola(vp);
+
+        return dao.save(vp);
+    }
+
+    public void delete(VrstaPrimanja vp) throws ObracunPlaceException {
+        if (!vp.getObracuni().isEmpty()) {
+            throw new ObracunPlaceException("Vrta primanja se ne može obrisati jer je u obračunu");
+        }
+        dao.delete(vp);
+    }
+
+    public void kontrola(VrstaPrimanja vp) throws ObracunPlaceException {
+
+        if (vp.getNazivVrstePrimanja().trim().isEmpty()) {
+            throw new ObracunPlaceException("Vrijednost nije definirana");
+        }
+        if (vp.getNazivVrstePrimanja() == null) {
+            throw new ObracunPlaceException("Obevazan unos vrijednosti");
+        }
+        if (vp.getKoeficijent().compareTo(BigDecimal.ZERO) <= 0) {
+            throw new ObracunPlaceException("Koeficijent mora bit pozitivan broj");
+        }
+        if (vp.getKoeficijent().compareTo(BigDecimal.ZERO) >= 5) {
+            throw new ObracunPlaceException("Koeficijent ne može biti toliki broj");
+        }
+
+    }
+
 }

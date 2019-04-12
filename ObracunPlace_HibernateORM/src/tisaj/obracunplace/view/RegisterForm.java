@@ -5,7 +5,6 @@
  */
 package tisaj.obracunplace.view;
 
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -200,41 +199,36 @@ public class RegisterForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        String ime=jtfIme.getText().toString();
+        String ime = jtfIme.getText().toString();
         String prezime = jtfPrezime.getText().toString();
         String username = jtfUsername.getText().toString();
         String password = String.valueOf(jtfLozinka.getPassword());
 
-        
-        if(username.equals("")){
+        if (username.equals("")) {
             JOptionPane.showMessageDialog(null, "Add a Username");
-        }
-        
-        else if(password.equals("")){
+        } else if (password.equals("")) {
             JOptionPane.showMessageDialog(null, "Add a Password");
-        }
-        else{
-        try {    
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/obracun_place_hib", "edunova", "edunova"); 
-        String query = "INSERT INTO `operater`(`ime`, `prezime`, `username`, `password` ) VALUES (?,?,?,?)";
-        PreparedStatement ps=con.prepareStatement(query);
-           
-            
-            ps.setString(1, ime);
-            ps.setString(2, prezime);
-            ps.setString(3, username);
-            ps.setString(4, BCrypt.hashpw(password, BCrypt.gensalt()));
-            
-            if(ps.executeUpdate()>0){
-                JOptionPane.showMessageDialog(null, "New user add");
-                new LoginForm().setVisible(true);
-                this.dispose();
+        } else {
+            try {
+                Connection con = DriverManager.getConnection("jdbc:mysql://localhost:3306/obracun_place_hib", "edunova", "edunova");
+                String query = "INSERT INTO `operater`(`ime`, `prezime`, `username`, `password` ) VALUES (?,?,?,?)";
+                PreparedStatement ps = con.prepareStatement(query);
+
+                ps.setString(1, ime);
+                ps.setString(2, prezime);
+                ps.setString(3, username);
+                ps.setString(4, BCrypt.hashpw(password, BCrypt.gensalt()));
+
+                if (ps.executeUpdate() > 0) {
+                    JOptionPane.showMessageDialog(null, "New user add");
+                    new LoginForm().setVisible(true);
+                    this.dispose();
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
             }
-            
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        
+
         }
     }//GEN-LAST:event_btnSubmitActionPerformed
 
@@ -260,7 +254,6 @@ public class RegisterForm extends javax.swing.JFrame {
         dispose();
     }//GEN-LAST:event_jLabel3MouseClicked
 
-  
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnSubmit;
