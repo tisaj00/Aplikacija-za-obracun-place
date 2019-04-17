@@ -12,18 +12,17 @@ import javax.persistence.Table;
 
 @Entity
 @Table
-public class Obracun extends Entitet implements Serializable{
-    
-    
+public class Obracun extends Entitet implements Serializable {
+
     @ManyToOne
     private Isplata isplata;
 
-    @ManyToOne   
+    @ManyToOne
     private VrstaPrimanja vrstaPrimanja;
-    
-    @ManyToOne   
+
+    @ManyToOne
     private Radnik radnik;
-    
+
     private double kolicinaSati;
 
     public Isplata getIsplata() {
@@ -58,13 +57,9 @@ public class Obracun extends Entitet implements Serializable{
         this.kolicinaSati = kolicinaSati;
     }
 
-    
-
     @Override
     public String toString() {
-            return getId() +"   "+ getIsplata();
-     }
+        return getId() + "   " + getIsplata();
+    }
 
-    
-    
 }

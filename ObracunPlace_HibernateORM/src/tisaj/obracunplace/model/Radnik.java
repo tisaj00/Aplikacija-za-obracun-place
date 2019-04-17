@@ -35,6 +35,8 @@ public class Radnik extends Entitet implements Serializable {
 
     @OneToMany(mappedBy = "radnik")
     private List<Obracun> obracuni = new ArrayList<>();
+    
+    
 
     public String getIban() {
         return iban;

@@ -14,7 +14,7 @@ import tisaj.obracunplace.pomocno.ObradaSucelje;
 
 /**
  *
- * @author Josip
+ * @author Ivan
  */
 public class ObradaOperater extends Obrada<Operater> implements ObradaSucelje<Operater>{
 
