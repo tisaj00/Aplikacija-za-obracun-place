@@ -49,7 +49,7 @@ public class VrstaPrimanja extends Entitet implements Serializable {
 
     @Override
     public String toString() {
-        return nazivVrstePrimanja +"   " + koeficijent;
+        return nazivVrstePrimanja +" " +"Koeficijent: "+ koeficijent;
     }
     
     

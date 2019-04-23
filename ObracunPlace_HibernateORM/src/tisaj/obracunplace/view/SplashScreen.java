@@ -5,8 +5,7 @@
  */
 package tisaj.obracunplace.view;
 
-import tisaj.obracunplace.controller.ObradaObracun;
-import tisaj.obracunplace.controller.ObradaRadnik;
+import tisaj.obracunplace.controller.ObradaVrstaPrimanja;
 
 /**
  *
@@ -19,44 +18,44 @@ public class SplashScreen extends javax.swing.JFrame {
      */
     public SplashScreen() {
         initComponents();
-        
+
         ProvjeriSpajanjeNaBazu p = new ProvjeriSpajanjeNaBazu();
         p.start();
     }
 
-    private class ProvjeriSpajanjeNaBazu extends Thread{
+    private class ProvjeriSpajanjeNaBazu extends Thread {
 
         @Override
         public void run() {
-            
+
             jblPoruka.setText("Inicijaliziram...");
-            for(int i=1;i<50;i++){
+            for (int i = 1; i < 50; i++) {
                 jProgressBar1.setValue(i);
                 try {
                     Thread.sleep(30);
                 } catch (Exception e) {
                 }
- 
+
             }
             jblPoruka.setText("Spajam se na bazu....");
-            if(new ObradaRadnik().getLista().size()>0){
-                jblPoruka.setText("Uspješno startam program");
-                for(int i=50;i<=100;i++){
-                jProgressBar1.setValue(i);
-                try {
-                     Thread.sleep(30);
-                } catch (Exception e) {
+            if (new ObradaVrstaPrimanja().getLista().size() > 0) {
+                jblPoruka.setText("Uspješno startan program");
+                for (int i = 50; i <= 100; i++) {
+                    jProgressBar1.setValue(i);
+                    try {
+                        Thread.sleep(30);
+                    } catch (Exception e) {
+                    }
                 }
-            }
-               
+
                 new LoginForm().setVisible(true);
                 dispose();
-            }else
-            {
+            } else {
 
-            }    
+            }
         }
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -111,9 +110,6 @@ public class SplashScreen extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
-    
-    
-    
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
