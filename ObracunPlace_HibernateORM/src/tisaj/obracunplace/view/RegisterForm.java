@@ -199,9 +199,9 @@ public class RegisterForm extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnSubmitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSubmitActionPerformed
-        String ime = jtfIme.getText().toString();
-        String prezime = jtfPrezime.getText().toString();
-        String username = jtfUsername.getText().toString();
+        String ime = jtfIme.getText();
+        String prezime = jtfPrezime.getText();
+        String username = jtfUsername.getText();
         String password = String.valueOf(jtfLozinka.getPassword());
 
         if (username.equals("")) {

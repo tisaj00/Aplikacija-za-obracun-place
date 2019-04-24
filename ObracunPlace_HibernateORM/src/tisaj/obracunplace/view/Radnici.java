@@ -9,7 +9,6 @@ import java.awt.Image;
 import java.awt.Toolkit;
 import java.awt.image.BufferedImage;
 import java.io.File;
-import java.net.URL;
 import tisaj.obracunplace.controller.ObradaRadnik;
 import tisaj.obracunplace.model.Radnik;
 import tisaj.obracunplace.pomocno.ObracunPlaceException;
@@ -30,10 +29,9 @@ import tisaj.obracunplace.pomocno.Pomocno;
  */
 public class Radnici extends javax.swing.JFrame {
 
-    private ObradaRadnik obradaRadnik;
-    private static final String NEMA_SLIKU=Pomocno.getPutanjaAplikacije() + 
-                "slike" + File.separator + "nemaSlike.jpg";
- 
+    private final ObradaRadnik obradaRadnik;
+    private static final String NEMA_SLIKU = Pomocno.getPutanjaAplikacije()
+            + "slike" + File.separator + "nemaSlike.jpg";
 
     /**
      * Creates new form Radnik
@@ -50,6 +48,7 @@ public class Radnici extends javax.swing.JFrame {
         dpDatumRodenja.getSettings().setFormatForDatesBeforeCommonEra("dd. MMMM uuuu.");
         ucitajSlikuPolaznika(NEMA_SLIKU);
         seticon();
+
     }
 
     /**
@@ -385,12 +384,12 @@ public class Radnici extends javax.swing.JFrame {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        
-        String putanja=Pomocno.getPutanjaAplikacije()+"slike"+File.separator+r.getId()+".png";
-        
-        if(new File(putanja).exists()){
+
+        String putanja = Pomocno.getPutanjaAplikacije() + "slike" + File.separator + r.getId() + ".png";
+
+        if (new File(putanja).exists()) {
             ucitajSlikuPolaznika(putanja);
-        }else{
+        } else {
             ucitajSlikuPolaznika(NEMA_SLIKU);
         }
 
@@ -460,28 +459,26 @@ public class Radnici extends javax.swing.JFrame {
 
     private void btnUcitajSlikuActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUcitajSlikuActionPerformed
         Radnik rr = lstEntitet.getSelectedValue();
-        if(rr==null){
-            JOptionPane.showMessageDialog(null,"Prvo odaberi radnika");
+        if (rr == null) {
+            JOptionPane.showMessageDialog(null, "Prvo odaberi radnika");
             return;
         }
-        
-        JFileChooser odaberiSliku = new JFileChooser(System.getProperty("user.home"));
-        
-        odaberiSliku.setFileFilter(new FileNameExtensionFilter("slike", "jpg", "png", "gif", "bmp"));
-     
 
-        
-        if(odaberiSliku.showOpenDialog(this)==JFileChooser.APPROVE_OPTION){
+        JFileChooser odaberiSliku = new JFileChooser(System.getProperty("user.home"));
+
+        odaberiSliku.setFileFilter(new FileNameExtensionFilter("slike", "jpg", "png", "gif", "bmp"));
+
+        if (odaberiSliku.showOpenDialog(this) == JFileChooser.APPROVE_OPTION) {
             try {
                 Image i = ImageIO.read(odaberiSliku.getSelectedFile());
-                
-                String putanja = Pomocno.getPutanjaAplikacije()+"slike"+
-                        File.separator + rr.getId()+ ".png";
-                
-                ImageIO.write((BufferedImage)i, "png", new File(putanja));
-                
+
+                String putanja = Pomocno.getPutanjaAplikacije() + "slike"
+                        + File.separator + rr.getId() + ".png";
+
+                ImageIO.write((BufferedImage) i, "png", new File(putanja));
+
                 ucitajSlikuPolaznika(putanja);
-                
+
             } catch (Exception e) {
             }
         }
@@ -538,6 +535,7 @@ public class Radnici extends javax.swing.JFrame {
         txtOpcina.setText("");
         txtIban.setText("");
         dpDatumRodenja.setDate(null);
+        ucitajSlikuPolaznika(NEMA_SLIKU);
 
     }
 
@@ -612,13 +610,13 @@ public class Radnici extends javax.swing.JFrame {
         }
 
     }
-    
-    private void ucitajSlikuPolaznika(String putanja){
-          try {
-           Image i = ImageIO.read(new File(putanja));
-         //Image i = ImageIO.read(new URL("https://avatars0.githubusercontent.com/u/44522220?s=460&v=4"));
-        lblSlika.setIcon(new ImageIcon(i.getScaledInstance(187 , 235, Image.SCALE_DEFAULT)));
-        
+
+    private void ucitajSlikuPolaznika(String putanja) {
+        try {
+            Image i = ImageIO.read(new File(putanja));
+            //Image i = ImageIO.read(new URL("https://avatars0.githubusercontent.com/u/44522220?s=460&v=4"));
+            lblSlika.setIcon(new ImageIcon(i.getScaledInstance(187, 235, Image.SCALE_DEFAULT)));
+
         } catch (Exception e) {
         }
     }

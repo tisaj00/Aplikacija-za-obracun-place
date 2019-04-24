@@ -230,7 +230,7 @@ public class LoginForm extends javax.swing.JFrame {
     }//GEN-LAST:event_btnExitActionPerformed
 
     private void jLabel4MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel4MouseClicked
-        this.dispose();
+        dispose();
     }//GEN-LAST:event_jLabel4MouseClicked
 
 
