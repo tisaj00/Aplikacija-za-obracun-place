@@ -5,9 +5,18 @@
  */
 package tisaj.obracunplace.view;
 
+import com.itextpdf.text.Chunk;
+import com.itextpdf.text.Document;
+import com.itextpdf.text.DocumentException;
+import com.itextpdf.text.Paragraph;
+import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Component;
 import java.awt.Toolkit;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.util.List;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
 import javax.swing.JLabel;
@@ -55,7 +64,7 @@ public class Obracuni extends javax.swing.JFrame {
             ms.addElement(s);
         });
         cmbVrstaPrimanja.setModel(ms);
-
+        ucitajRadnike();
         ucitajIsplate();
         seticon();
     }
@@ -77,7 +86,6 @@ public class Obracuni extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         lstRadnici = new javax.swing.JList<>();
-        btnDodaj = new javax.swing.JButton();
         btnObrisi = new javax.swing.JButton();
         btnPromjeni = new javax.swing.JButton();
         txtUvjet = new javax.swing.JTextField();
@@ -111,37 +119,28 @@ public class Obracuni extends javax.swing.JFrame {
         });
         jScrollPane1.setViewportView(lstIsplata);
 
-        jLabel3.setText("Vrsta Primanja");
         jLabel3.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel3.setText("Vrsta Primanja");
 
-        jLabel4.setText("Količina sati");
         jLabel4.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel4.setText("Količina sati");
 
         jScrollPane2.setViewportView(lstRadnici);
 
-        btnDodaj.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tisaj/obracunplace/pomocno/Button-Add-icon (1).png"))); // NOI18N
-        btnDodaj.setText("Dodaj");
-        btnDodaj.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
-        btnDodaj.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnDodajActionPerformed(evt);
-            }
-        });
-
+        btnObrisi.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnObrisi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tisaj/obracunplace/pomocno/Button-Delete-icon.png"))); // NOI18N
         btnObrisi.setText("Obriši");
-        btnObrisi.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnObrisi.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnObrisiActionPerformed(evt);
             }
         });
 
+        btnPromjeni.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnPromjeni.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tisaj/obracunplace/pomocno/Button-Refresh-icon.png"))); // NOI18N
         btnPromjeni.setText("Promjeni");
-        btnPromjeni.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnPromjeni.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnPromjeniActionPerformed(evt);
@@ -157,25 +156,25 @@ public class Obracuni extends javax.swing.JFrame {
         chbLimitator.setSelected(true);
         chbLimitator.setText("Limitiraj na 25");
 
-        btnOčisti.setText("Očisti");
         btnOčisti.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnOčisti.setText("Očisti");
         btnOčisti.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOčistiActionPerformed(evt);
             }
         });
 
+        txtKolicina.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         txtKolicina.setHorizontalAlignment(javax.swing.JTextField.CENTER);
         txtKolicina.setText("0.0");
-        txtKolicina.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
 
-        jLabel5.setText("Radnici u bazi");
         jLabel5.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel5.setText("Radnici u bazi");
 
         btnMakniSObracuna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tisaj/obracunplace/pomocno/right.png"))); // NOI18N
-        btnMakniSObracuna.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         btnMakniSObracuna.setToolTipText("");
+        btnMakniSObracuna.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(51, 51, 51)));
         btnMakniSObracuna.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnMakniSObracunaActionPerformed(evt);
@@ -190,21 +189,21 @@ public class Obracuni extends javax.swing.JFrame {
             }
         });
 
-        jLabel6.setText("Radnici na obracunu");
         jLabel6.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel6.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel6.setText("Radnici na obracunu");
 
-        btnIzracun.setText("Izračunaj plaću");
         btnIzracun.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        btnIzracun.setText("Izračunaj plaću");
         btnIzracun.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnIzracunActionPerformed(evt);
             }
         });
 
-        jLabel7.setText("Isplate");
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         jLabel7.setForeground(new java.awt.Color(255, 0, 0));
+        jLabel7.setText("Isplate");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -251,9 +250,8 @@ public class Obracuni extends javax.swing.JFrame {
                                     .addGap(63, 63, 63))
                                 .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnObrisi, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnPromjeni, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnOčisti, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(btnDodaj, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(btnPromjeni, javax.swing.GroupLayout.DEFAULT_SIZE, 205, Short.MAX_VALUE)
+                                    .addComponent(btnOčisti, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addComponent(cmbVrstaPrimanja, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 205, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGap(56, 56, 56)
@@ -303,8 +301,6 @@ public class Obracuni extends javax.swing.JFrame {
                                 .addGap(18, 18, 18)
                                 .addComponent(txtKolicina, javax.swing.GroupLayout.PREFERRED_SIZE, 28, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnDodaj)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addComponent(btnPromjeni)
                                 .addGap(13, 13, 13)
                                 .addComponent(btnObrisi, javax.swing.GroupLayout.PREFERRED_SIZE, 41, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -319,23 +315,6 @@ public class Obracuni extends javax.swing.JFrame {
         pack();
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
-
-    private void btnDodajActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajActionPerformed
-        Obracun o = new Obracun();
-
-        o.setIsplata(lstIsplata.getSelectedValue());
-        o.setRadnik(lstRadnici.getSelectedValue());
-        o.setVrstaPrimanja((VrstaPrimanja) cmbVrstaPrimanja.getSelectedItem());
-        o.setKolicinaSati(Double.parseDouble(txtKolicina.getText()));
-        try {
-            obradaObracun.save(o);
-            ocistiPolja();
-            ucitajIsplate();
-        } catch (ObracunPlaceException e) {
-            JOptionPane.showMessageDialog(null, e.getMessage());
-        }
-
-    }//GEN-LAST:event_btnDodajActionPerformed
 
     private void btnObrisiActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnObrisiActionPerformed
         Isplata entitet = lstIsplata.getSelectedValue();
@@ -445,9 +424,6 @@ public class Obracuni extends javax.swing.JFrame {
         if (obracun == null) {
             return;
         }
-
-        txtKolicina.setText(String.valueOf(obracun.getKolicinaSati()));
-
         modelVrstaPrimanja = (DefaultComboBoxModel<VrstaPrimanja>) cmbVrstaPrimanja.getModel();
         for (int i = 0; i < modelVrstaPrimanja.getSize(); i++) {
             if (modelVrstaPrimanja.getElementAt(i).getId() == obracun.getVrstaPrimanja().getId()) {
@@ -455,6 +431,9 @@ public class Obracuni extends javax.swing.JFrame {
                 break;
             }
         }
+        txtKolicina.setText(String.valueOf(obracun.getKolicinaSati()));
+
+        
     }//GEN-LAST:event_lstRadniciNaObracunuValueChanged
 
     private void btnDodajNaObracunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajNaObracunActionPerformed
@@ -487,11 +466,39 @@ public class Obracuni extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDodajNaObracunActionPerformed
 
     private void btnIzracunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzracunActionPerformed
-        isplata = lstIsplata.getSelectedValue();
-        if (isplata == null) {
-            JOptionPane.showMessageDialog(null, "Odaberit isplatu za izračun");
+        try {                                           
+            isplata = lstIsplata.getSelectedValue();
+            if (isplata == null) {
+                JOptionPane.showMessageDialog(null, "Odaberit isplatu za izračun");
+            }
+            
+            
+            Document document=new Document();
+            
+            
+            try {
+                PdfWriter.getInstance(document,new FileOutputStream("obracun.pdf"));
+            } catch (DocumentException ex) {   
+            }
+            document.open();
+            try {
+                
+                document.add(new Paragraph("Hello world this is my first PDF"));
+            } catch (DocumentException ex) {
+               
+            }
+            document.close();
+            
+            
+            
+            
+            
+        } catch (FileNotFoundException ex) {
+            Logger.getLogger(Obracuni.class.getName()).log(Level.SEVERE, null, ex);
         }
-        Obracun o = new Obracun();
+        
+        
+      
 
 
     }//GEN-LAST:event_btnIzracunActionPerformed
@@ -501,7 +508,6 @@ public class Obracuni extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnDodaj;
     private javax.swing.JButton btnDodajNaObracun;
     private javax.swing.JButton btnIzracun;
     private javax.swing.JButton btnMakniSObracuna;
@@ -590,4 +596,11 @@ public class Obracuni extends javax.swing.JFrame {
         lstIsplata.setModel(ob);
     }
 
+    private void ucitajRadnike() {
+        DefaultListModel<Radnik> r = new DefaultListModel<>();
+        for (Radnik m : obradaRadnik.getLista()) {
+            r.addElement(m);
+        }
+        lstRadnici.setModel(r);
+    }
 }

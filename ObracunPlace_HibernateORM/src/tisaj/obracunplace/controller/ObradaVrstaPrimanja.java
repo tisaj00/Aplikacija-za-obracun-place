@@ -54,6 +54,10 @@ public class ObradaVrstaPrimanja extends Obrada<VrstaPrimanja> implements Obrada
         if (vp.getKoeficijent().compareTo(BigDecimal.ZERO) >= 5) {
             throw new ObracunPlaceException("Koeficijent ne može biti toliki broj");
         }
+        if (vp.getKoeficijent().compareTo(BigDecimal.ZERO) == 0) {
+            throw new ObracunPlaceException("Koeficijent ne može biti toliki broj");
+        }
+        
 
     }
 

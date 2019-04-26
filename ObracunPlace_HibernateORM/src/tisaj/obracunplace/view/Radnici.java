@@ -543,7 +543,7 @@ public class Radnici extends javax.swing.JFrame {
         r.setIme(txtIme.getText());
         r.setPrezime(txtPrezime.getText());
         r.setSpol(txtSpol.getText());
-
+        
         try {
             r.setMobitel(txtMobitel.getText());
         } catch (Exception e) {

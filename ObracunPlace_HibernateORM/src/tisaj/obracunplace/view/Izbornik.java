@@ -20,7 +20,7 @@ public class Izbornik extends javax.swing.JFrame {
     public Izbornik(Operater operater) {
         initComponents();
         this.operater=operater;
-        setTitle(" Welcome:  "+ operater.getIme() + " " + operater.getPrezime());
+        setTitle(" Korisnik:  "+ operater.getIme() + " " + operater.getPrezime());
     }
 
     /**
@@ -43,6 +43,7 @@ public class Izbornik extends javax.swing.JFrame {
         jMenu2 = new javax.swing.JMenu();
         jMenuItem5 = new javax.swing.JMenuItem();
         jMenuItem6 = new javax.swing.JMenuItem();
+        jMenu4 = new javax.swing.JMenu();
         jMenu3 = new javax.swing.JMenu();
         jMenuItem7 = new javax.swing.JMenuItem();
 
@@ -115,6 +116,9 @@ public class Izbornik extends javax.swing.JFrame {
 
         jMenuBar1.add(jMenu2);
 
+        jMenu4.setText("                                                                                                                                               ");
+        jMenuBar1.add(jMenu4);
+
         jMenu3.setText("Logout");
 
         jMenuItem7.setText("Logout");
@@ -182,6 +186,7 @@ public class Izbornik extends javax.swing.JFrame {
     private javax.swing.JMenu jMenu1;
     private javax.swing.JMenu jMenu2;
     private javax.swing.JMenu jMenu3;
+    private javax.swing.JMenu jMenu4;
     private javax.swing.JMenuBar jMenuBar1;
     private javax.swing.JMenuItem jMenuItem1;
     private javax.swing.JMenuItem jMenuItem2;

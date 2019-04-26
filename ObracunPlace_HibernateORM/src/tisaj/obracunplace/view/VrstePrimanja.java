@@ -84,6 +84,8 @@ public class VrstePrimanja extends javax.swing.JFrame {
             }
         });
 
+        txtKoeficijent.setText("0");
+
         btnObrisi.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         btnObrisi.setIcon(new javax.swing.ImageIcon(getClass().getResource("/tisaj/obracunplace/pomocno/Button-Delete-icon.png"))); // NOI18N
         btnObrisi.setText("Obriši");
@@ -236,7 +238,7 @@ public class VrstePrimanja extends javax.swing.JFrame {
     }//GEN-LAST:event_lstEntitetiValueChanged
 
     private void ocistiPolja() {
-        txtKoeficijent.setText("");
+        txtKoeficijent.setText("0");
         txtVrsta.setText("");
 
     }

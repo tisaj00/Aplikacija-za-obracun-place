@@ -92,12 +92,13 @@ public class ObradaRadnik extends Obrada<Radnik> implements ObradaSucelje<Radnik
         if (r.getSpol() == null) {
             throw new ObracunPlaceException("Spol nije definiran");
         }
+        
         if (r.getSpol().trim().isEmpty()) {
             throw new ObracunPlaceException("Spol nije unesen");
         }
-//        if(r.getDatumRodenja()==null){
-//            throw new ObracunPlaceException("Datum rođenja nije definiran");
-//        }
+        if(r.getDatumRodenja()==null){
+            throw new ObracunPlaceException("Datum rođenja nije definiran");
+        }
         if (r.getOsnovicaPoSatu() == null) {
             throw new ObracunPlaceException("Osnovica po satu nije definirana");
         }
