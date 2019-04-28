@@ -59,6 +59,7 @@ public class VrstePrimanja extends javax.swing.JFrame {
         lstEntiteti = new javax.swing.JList<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Vrsta Primanja");
 
         jLabel1.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel1.setText("Naziv vrste primanja");

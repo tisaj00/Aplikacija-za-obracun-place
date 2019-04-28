@@ -12,17 +12,27 @@ import com.itextpdf.text.Paragraph;
 import com.itextpdf.text.pdf.PdfWriter;
 import java.awt.Component;
 import java.awt.Toolkit;
+import java.io.File;
+import java.io.FileInputStream;
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
+import java.io.IOException;
+import java.math.BigDecimal;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.DefaultListModel;
+import javax.swing.JFileChooser;
 import javax.swing.JLabel;
 import javax.swing.JList;
 import javax.swing.JOptionPane;
 import javax.swing.ListCellRenderer;
+import org.apache.poi.xwpf.usermodel.XWPFDocument;
+import org.apache.poi.xwpf.usermodel.XWPFParagraph;
+import org.apache.poi.xwpf.usermodel.XWPFRun;
 import tisaj.obracunplace.controller.ObradaIsplata;
 import tisaj.obracunplace.controller.ObradaObracun;
 import tisaj.obracunplace.controller.ObradaRadnik;
@@ -45,6 +55,8 @@ public class Obracuni extends javax.swing.JFrame {
     private static DefaultComboBoxModel<VrstaPrimanja> modelVrstaPrimanja;
     private Obracun obracun;
     private Isplata isplata;
+    private Radnik radnik;
+    private VrstaPrimanja vrstaPrimanja;
 
     /**
      * Creates new form Obracuni
@@ -350,15 +362,14 @@ public class Obracuni extends javax.swing.JFrame {
 
         Isplata i = lstIsplata.getSelectedValue();
         DefaultListModel<Obracun> m = new DefaultListModel<>();
-            
+
         try {
-             List<Obracun> obracuni = obradaObracun.getLista(i.getId());
-             obracuni.forEach((o) -> {
-            m.addElement(o);
-        });
+            List<Obracun> obracuni = obradaObracun.getLista(i.getId());
+            obracuni.forEach((o) -> {
+                m.addElement(o);
+            });
         } catch (Exception e) {
         }
-       
 
 //        Collections.sort(obracuni, new Comparator<Obracun>() {
 //
@@ -366,8 +377,6 @@ public class Obracuni extends javax.swing.JFrame {
 //                return s1.getRadnik().getPrezime().compareTo(s2.getRadnik().getPrezime());
 //            }
 //        });
-        
-
         lstRadniciNaObracunu.setModel(m);
         lstRadniciNaObracunu.setCellRenderer(new ObracunRenderer());
 
@@ -433,7 +442,7 @@ public class Obracuni extends javax.swing.JFrame {
         }
         txtKolicina.setText(String.valueOf(obracun.getKolicinaSati()));
 
-        
+
     }//GEN-LAST:event_lstRadniciNaObracunuValueChanged
 
     private void btnDodajNaObracunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDodajNaObracunActionPerformed
@@ -466,40 +475,101 @@ public class Obracuni extends javax.swing.JFrame {
     }//GEN-LAST:event_btnDodajNaObracunActionPerformed
 
     private void btnIzracunActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnIzracunActionPerformed
-        try {                                           
+        
             isplata = lstIsplata.getSelectedValue();
             if (isplata == null) {
                 JOptionPane.showMessageDialog(null, "Odaberit isplatu za izračun");
+                return;
+            }
+            
+             Obracun radnik = lstRadniciNaObracunu.getSelectedValue();
+            if(radnik==null){
+                JOptionPane.showMessageDialog(null, "Odaberite radnika za obračun plaće");
+                return;
             }
             
             
-            Document document=new Document();
-            
-            
-            try {
-                PdfWriter.getInstance(document,new FileOutputStream("obracun.pdf"));
-            } catch (DocumentException ex) {   
-            }
-            document.open();
-            try {
-                
-                document.add(new Paragraph("Hello world this is my first PDF"));
-            } catch (DocumentException ex) {
-               
-            }
-            document.close();
-            
-            
-            
-            
-            
-        } catch (FileNotFoundException ex) {
-            Logger.getLogger(Obracuni.class.getName()).log(Level.SEVERE, null, ex);
-        }
-        
-        
-      
 
+            try {
+                XWPFDocument document = new XWPFDocument(new FileInputStream(new File("ObracunPlacePredlozak.docx")));
+
+                for (XWPFParagraph p : document.getParagraphs()) {
+                    List<XWPFRun> runs = p.getRuns();
+                    if (runs != null) {
+                        for (XWPFRun r : runs) {
+                            
+                            
+                            String text = r.getText(0);
+                            if (text != null && text.contains("<<imeprezime>>")) {
+                                text = text.replace("<<imeprezime>>", radnik.getRadnik().getIme() + " " + radnik.getRadnik().getPrezime() );
+                                r.setText(text, 0);
+                            }
+
+                            
+
+                            if (text != null && text.contains("<<isplata>>")) {
+                                text = text.replace("<<isplata>>", isplata.getNazivIsplate());
+                                r.setText(text, 0);
+                            }
+                            
+                            if (text != null && text.contains("<<oib>>")) {
+                                text = text.replace("<<oib>>", radnik.getRadnik().getOib());
+                                r.setText(text, 0);
+                            }
+                            
+                            if (text != null && text.contains("<<osnovicaposatu>>")) {
+                                text = text.replace("<<osnovicaposatu>>", radnik.getRadnik().getOsnovicaPoSatu());
+                                r.setText(text, 0);
+                            }
+                            
+                            if (text != null && text.contains("<<kolicinasati>>")) {
+                                text = text.replace("<<kolicinasati>>", String.valueOf(obracun.getKolicinaSati()));
+                                r.setText(text, 0);
+                            }
+                            if (text != null && text.contains("<<koeficijent>>")) {
+                                text = text.replace("<<koeficijent>>", String.valueOf(obracun.getVrstaPrimanja().getKoeficijent()));
+                                r.setText(text, 0);
+                            }
+                            if (text != null && text.contains("<<iban>>")) {
+                                text = text.replace("<<iban>>", radnik.getRadnik().getIban());
+                                r.setText(text, 0);
+                            }
+                
+                            
+
+                            if (text != null && text.contains("<<iznos>>")) {
+                                
+                                Double a = radnik.getKolicinaSati();
+                                Double b = obracun.getVrstaPrimanja().getKoeficijent().doubleValue();
+                                Double c = Double.parseDouble(radnik.getRadnik().getOsnovicaPoSatu());
+                                
+                                Double rez = a * b *c;
+
+                                text = text.replace("<<iznos>>",String.valueOf(rez) );
+                                r.setText(text, 0);
+                            }
+                            
+                        }
+                    }
+                }
+
+                JFileChooser j = new JFileChooser();
+                if (j.showSaveDialog(getParent()) == JFileChooser.APPROVE_OPTION) {
+                    try {
+                        document.write(new FileOutputStream(j.getSelectedFile()));
+                        document.close();
+                    } catch (Exception e) {
+                        System.err.println("An exception occured in creating the DOCX document." + e.getMessage());
+                    }
+                }
+
+            } catch (IOException ex) {
+
+            }
+
+           
+         
+         
 
     }//GEN-LAST:event_btnIzracunActionPerformed
 
@@ -576,7 +646,6 @@ public class Obracuni extends javax.swing.JFrame {
         }
 
     }
-
 
     private void spremi(Obracun o) {
         try {
